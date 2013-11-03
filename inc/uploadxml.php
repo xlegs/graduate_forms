@@ -23,10 +23,14 @@ function ObjtoArray(SimpleXMLElement $obj) {
     
     //for each of the elements of the of the new array recursively call this function
     foreach( array_slice($array, 0) as $key => $value ) {
-	if( $value instanceof SimpleXMLElement ){
-	    $array[$key] = empty($value) ? NULL : ObjtoArray($value);
-	}
+		if( $value instanceof SimpleXMLElement ){
+			$array[$key] = empty($value) ? NULL : ObjtoArray($value);
+		}
+		if( $attributes = $value->attributes()){
+			$att_array[$key] = $value; 
+		}
     }
+	$_SESSION['pairnumber'] = $att_array;
     return $array;
 }
 
