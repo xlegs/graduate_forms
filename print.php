@@ -14,15 +14,23 @@
   <link rel="stylesheet" type="text/css" href="css/print.css">
 
   <script src="js/vendor/custom.modernizr.js"></script>
+  <script type="text/javascript">
+  	function onDownload() {
+    document.location = 'data:Application/octet-stream,' +
+                         encodeURIComponent('<?php include 'inc/save.php';?>');
+}
+  </script>
   
 </head>
-<body>
-<?php include 'inc/save.php';?>
-	<div class="row">
-		<div class="small-12 columns">
+<body>	<div class="row">
+		<div class="small-8 columns">
 			<h2>Program of Studies</h2>
 			<h3>Electrical Engineering &middot; Master's Degree</h3>
 			<h4>Area: Systems</h4>
+		</div>
+		<div class="small-4 columns">
+			<a href="javascript:window.print()" class="button">Print</a>
+			<a href="javascript:onDownload()" class="button">Save</a>
 		</div>
 	</div>
 
@@ -33,29 +41,29 @@
 				<legend>Personal Information</legend>
 				<div class="row">
 					<div class="small-2 columns">
-					    <p>First Name</p>
+					    <p><?echo $_POST['firstName'];?></p>
 					</div>
 					<div class="small-2 columns">
-					    <p>Middle Name</p>
+					    <p><?echo $_POST['middleName'];?></p>
 					</div>
 					<div class="small-2 columns">
-					    <p>Last Name</p>
+					    <p><?echo $_POST['lastName'];?></p>
 					</div>
 					<div class="small-6 columns">
-					    <p>W0123456</p>
+					    <p><?echo $_POST['SCUid'];?></p>
 					</div>
 					
 			    </div>
 			    <div class="row">
 
 					<div class="small-4 columns">
-					    <p>Home: (408) 555-5555</p>
+					    <p><?echo $_POST['homePhone'];?></p>
 					</div>
 					<div class="small-4 columns">
-					    <p>Work: (408) 555-5555</p>
+					    <p><?echo $_POST['workPhone'];?></p>
 					</div>
 					<div class="small-4 columns">
-					    <p>user@domain.com</p>
+					    <p><?echo $_POST['email'];?></p>
 					</div>
 			    </div>
 			    <div class="row">
@@ -68,13 +76,13 @@
 			    <legend>Graduate Core Requirements (minimum of 6 units)</legend>
 				<div class="row">
 					<div class="small-4 columns">
-					    <p>ELEN 000 - Course Title</p>
+					    <p><?echo $_POST['core1'];?></p>
 					</div>
 					<div class="small-4 columns">
-					    <p>ELEN 000 - Course Title</p>
+					    <p><?echo $_POST['core2'];?></p>
 					</div>
 					<div class="small-4 columns">
-					    <p>ELEN 000 - Course Title</p>
+					    <p><?echo $_POST['core3'];?></p>
 					</div>
 			    </div>    
 			  </fieldset>
@@ -82,24 +90,26 @@
 			    <legend>Applied Mathematics (4 units required)</legend>
 				<div class="row">
 					<div class="small-4 columns">
-					    <p>AMTH 000 - Course Title</p>
+					    <p><?echo $_POST['amth1'];?></p>
 					</div>
 					<div class="small-4 columns">
-					    <p>AMTH 000 - Course Title</p>
+					    <p><?echo $_POST['amth2'];?></p>
 					</div>
 			    </div>
 			  </fieldset>
 			  <fieldset>
 			    <legend>Electrical Engineering Core Focus Area: Systems</legend>
 				<div class="row">
+					<? 
+					foreach($_POST['focus1'] as $val)
+		            {
+		                echo '<div class="small-4 columns">';
+		                echo '<p>'.$val.'</p>';
+		                echo '</div>';
+		            }
+	            	?>
 					<div class="small-4 columns">
-					    <p>ELEN 000 - Course Title</p>
-					</div>
-					<div class="small-4 columns">
-					    <p>ELEN 000 - Course Title</p>
-					</div>
-					<div class="small-4 columns">
-					    <p>ELEN 000 - Course Title</p>
+					    <p><?echo $_POST['focus3'];?></p>
 					</div>
 			    </div>    
 			  </fieldset>
@@ -107,11 +117,11 @@
 			    <legend>Core Breadth: Electronics and Communication &amp; Microwave (2 units required per area)</legend>
 			    <div class="row">
 					<div class="small-4 columns">
-					    <p>ELEN 000 - Course Title</p>
+					    <p><?echo $_POST['breadth1'];?></p>
 					</div>
 					<div class="small-4 columns">
-					    <p>ELEN 000 - Course Title</p>
-					</div>				
+					    <p><?echo $_POST['breadth2'];?></p>
+					</div>
 				</div>
 			  </fieldset>
 			  <fieldset>
@@ -123,28 +133,19 @@
 			    </div>
 
 				<div class="row">
-					<div class="small-6 columns">
-					    <p>ELEN 000 - Course Title - # of Units</p>
-					</div>
-					<div class="small-6 columns">
-					    <p>ELEN 000 - Course Title - # of Units</p>
-					</div>				
-			    </div>
-				<div class="row">
-					<div class="small-6 columns">
-					    <p>ELEN 000 - Course Title - # of Units</p>
-					</div>
-					<div class="small-6 columns">
-					    <p>ELEN 000 - Course Title - # of Units</p>
-					</div>				
-			    </div>
-				<div class="row">
-					<div class="small-6 columns">
-					    <p>ELEN 000 - Course Title - # of Units</p>
-					</div>
-					<div class="small-6 columns">
-					    <p>ELEN 000 - Course Title - # of Units</p>
-					</div>				
+					<?php 
+						# Output only when filled
+						for ($i=1; $i < 7; $i++) { 
+							if ($_POST['elective'.$i.'_number']!='' && $_POST['elective'.$i.'_title']!='' && $_POST['elective'.$i.'_units']!='' && $_POST['elective'.$i.'_units']!=0) {
+					    		if ($i % 2 == 1) {echo '<div class="small-6 columns">';}
+					    		echo "<p>";
+					    			echo $_POST['elective'.$i.'_number']." - ".$_POST['elective'.$i.'_title']." - ".$_POST['elective'.$i.'_units'];
+					    		echo "</p>";
+					    		if ($i % 2 == 1) {echo '</div>';}
+					    	}
+						}
+					?>
+
 			    </div>
 
 			  </fieldset>
@@ -153,33 +154,32 @@
 			    <legend>Transfer Credit Requested</legend>
 			    <div class="row">
 					<div class="small-12 columns">
-						<p>Institution Name</p>
+						<p>
+						<?
+							if ($_POST['institution']=="Other") {
+								echo $_POST['transferInstitution'];
+							} else {
+								echo $_POST['institution'];
+							}
+								
+						?>
+						</p>
 					</div>
 			    </div>
 
 				<div class="row">
-					<div class="small-6 columns">
-					    <p>ELEN 000 - Course Title - # of Units - Grade &middot; YYYY</p>
-					</div>
-					<div class="small-6 columns">
-					    <p>ELEN 000 - Course Title - # of Units - Grade &middot; YYYY</p>
-					</div>				
-			    </div>
-				<div class="row">
-					<div class="small-6 columns">
-					    <p>ELEN 000 - Course Title - # of Units - Grade &middot; YYYY</p>
-					</div>
-					<div class="small-6 columns">
-					    <p>ELEN 000 - Course Title - # of Units - Grade &middot; YYYY</p>
-					</div>				
-			    </div>
-				<div class="row">
-					<div class="small-6 columns">
-					    <p>ELEN 000 - Course Title - # of Units - Grade &middot; YYYY</p>
-					</div>
-					<div class="small-6 columns">
-					    <p>ELEN 000 - Course Title - # of Units - Grade &middot; YYYY</p>
-					</div>				
+					<?php 
+						# Output only when filled
+						for ($i=1; $i < 7; $i++) { 
+							if ($_POST['transfer'.$i.'_number']!='' && $_POST['transfer'.$i.'_title']!='' && $_POST['transfer'.$i.'_units']!='' && $_POST['transfer'.$i.'_units']!=0 && $_POST['transfer'.$i.'_grade']!='' && $_POST['transfer'.$i.'_year']!='') {
+					    		if ($i % 2 == 1) {echo '<div class="small-6 columns">';}
+					    		echo "<p>";
+					    			echo $_POST['transfer'.$i.'_number']." - ".$_POST['transfer'.$i.'_title']." - ".$_POST['transfer'.$i.'_units']." - ".$_POST['transfer'.$i.'_grade']." &middot; ".$_POST['transfer'.$i.'_year'];
+					    		echo "</p>";
+					    		if ($i % 2 == 1) {echo '</div>';}
+					    	}
+						}
+					?>
 			    </div>
 
 			    <hr/>

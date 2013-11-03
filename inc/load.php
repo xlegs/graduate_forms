@@ -13,7 +13,7 @@
 if($_POST['upload'])
     exit;
 if($filecontents = unserialize($_POST['upload'])){
-    //echo var_dump($filecontents);
+    echo var_dump($filecontents);
     $_SESSION['form'] = $filecontents;
 }
 else

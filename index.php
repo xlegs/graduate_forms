@@ -53,12 +53,12 @@
 		</div>
 		<div class="large-5 columns panel">
 			<h4>Continue From a File</h4>
-			<form>
+			<form enctype="multipart/form-data" action="form.php" method="post">
 				<label>Upload File</label>
-				<input type="file" class="upload" id="upload">
+				<input type="file" class="upload" id="upload" >
 				<a href="#" class="button upload small secondary">Browse...</a>
         <span id="filename">No file selected</span><br/>
-				<a href="form.php" class="button">Go</a>
+				<input class="button" type="submit" value="Go">
 			</form>
 
 		</div>

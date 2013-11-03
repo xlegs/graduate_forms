@@ -115,20 +115,20 @@
 					<div class="small-6 columns">
 					    <label for="amth1">Course Number One</label>
 					    <select id="amth1" name="amth1">
-						    <option SELECTED>Select a course</option>
-						    <option>This is another option</option>
-						    <option>This is another option too</option>
-						    <option>Look, a third option</option>
+						    <option SELECTED value="">Select a course</option>
+						    <option value="ENGR 000 - 2">This is another option</option>
+						    <option value="ENGR 000 - 2">This is another option too</option>
+						    <option value="ENGR 000 - 2">Look, a third option</option>
 						  </select>
 						<p>When a student selects a course from the above drop-down menu, that course's information will appear here.</p>
 					</div>
 					<div class="small-6 columns">
 					    <label for="amth2">Course Number Two</label>
 					    <select id="amth2" name="amth2">
-						    <option SELECTED>Select a course</option>
-						    <option>This is another option</option>
-						    <option>This is another option too</option>
-						    <option>Look, a third option</option>
+						    <option SELECTED value="">Select a course</option>
+						    <option value="ENGR 000 - 2">This is another option</option>
+						    <option value="ENGR 000 - 2">This is another option too</option>
+						    <option value="ENGR 000 - 2">Look, a third option</option>
 						  </select>
 						<p>When a student selects a course from the above drop-down menu, that course's information will appear here.</p>
 					</div>
@@ -146,9 +146,9 @@
 					<div class="small-6 columns">
 						<p>Check any two of the following courses:</p>
 					
-					    <label><input name="focus1" id="focus1-1" type="checkbox"> ELEN 000 - Course Name - <a href="">More Info</a></label>
-					    <label><input name="focus1" id="focus1-2" type="checkbox"> ELEN 000 - Course Name - <a href="">More Info</a></label>
-					    <label><input name="focus1" id="focus1-3" type="checkbox"> ELEN 000 - Course Name - <a href="">More Info</a></label>
+					    <label><input name="focus1[]" id="focus1-1" type="checkbox" value="ENGR 000 - 2"> ELEN 000 - Course Name - <a href="">More Info</a></label>
+					    <label><input name="focus1[]" id="focus1-2" type="checkbox" value="ENGR 001 - 2"> ELEN 000 - Course Name - <a href="">More Info</a></label>
+					    <label><input name="focus1[]" id="focus1-3" type="checkbox" value="ENGR 002 - 2"> ELEN 000 - Course Name - <a href="">More Info</a></label>
 					
 					</div>
 
@@ -156,9 +156,9 @@
 					<div class="small-6 columns">
 						<p>Choose one from the following courses:</p>
 					
-					    <label><input name="focus3" id="focus3-1" type="radio"> ELEN 000 - Course Name - <a href="">More Info</a></label>
-					    <label><input name="focus3" id="focus3-2" type="radio"> ELEN 000 - Course Name - <a href="">More Info</a></label>
-					    <label><input name="focus3" id="focus3-3" type="radio"> ELEN 000 - Course Name - <a href="">More Info</a></label>
+					    <label><input name="focus3" id="focus3-1" type="radio" value="ENGR 000 - 2"> ELEN 000 - Course Name - <a href="">More Info</a></label>
+					    <label><input name="focus3" id="focus3-2" type="radio" value="ENGR 000 - 2"> ELEN 000 - Course Name - <a href="">More Info</a></label>
+					    <label><input name="focus3" id="focus3-3" type="radio" value="ENGR 000 - 2"> ELEN 000 - Course Name - <a href="">More Info</a></label>
 					</div>
 			    </div>
 			  </fieldset>
@@ -168,20 +168,20 @@
 					<div class="small-6 columns">
 						 <label for="breadth1">Electronics and Communication</label>
 						<select id="breadth1" name="breadth1">
-						    <option SELECTED>Select a course</option>
-						    <option>This is another option</option>
-						    <option>This is another option too</option>
-						    <option>Look, a third option</option>
+						    <option SELECTED value="">Select a course</option>
+						    <option value="ENGR 000 - 2">This is another option</option>
+						    <option value="ENGR 000 - 2">This is another option too</option>
+						    <option value="ENGR 000 - 2">Look, a third option</option>
 						  </select>
 						<p>When a student selects a course from the above drop-down menu, that course's information will appear here.</p>
 					</div>
 					<div class="small-6 columns">
 						 <label for="breadth2">Microwave</label>
 						<select id="breadth2" name="breadth2">
-						    <option SELECTED>Select a course</option>
-						    <option>This is another option</option>
-						    <option>This is another option too</option>
-						    <option>Look, a third option</option>
+						    <option SELECTED value="">Select a course</option>
+						    <option value="ENGR 000 - 2">This is another option</option>
+						    <option value="ENGR 000 - 2">This is another option too</option>
+						    <option value="ENGR 000 - 2">Look, a third option</option>
 						  </select>
 						<p>When a student selects a course from the above drop-down menu, that course's information will appear here.</p>
 
@@ -311,8 +311,8 @@
 
 					<div class="small-6 columns">
 					    <label for="institution">Institution</label>
-						<select id="institution">
-						    <option SELECTED>Select an institution</option>
+						<select name="institution" id="institution">
+						    <option SELECTED value="">Select an institution</option>
 						    <option value="Santa Clara University">Santa Clara University (12 units maximum)</option>
 						    <option value="Santa Clara University 5 Year Program">Santa Clara University 5 Year Program (20 units maximum)</option>
 						    <option value="Other">Other (9 units maximum)</option>

@@ -43,7 +43,7 @@ $_SESSION['xmlDataBase'] = $xmlArray;
 $x=$_SESSION['xmlDataBase'];
 $x=$x['systems'];
 // $x=$x['systems'];
-echo $x;
-print_r($x);
+// echo $x;
+// print_r($x);
 // echo "</pre>";
 ?>
