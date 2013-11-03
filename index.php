@@ -2,7 +2,7 @@
 <!--[if IE 8]> 				 <html class="no-js lt-ie9" lang="en" > <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 
-<?php include 'inc/global.php'
+<?php include 'inc/global.php';?>
 
 <head>
 	<meta charset="utf-8">
