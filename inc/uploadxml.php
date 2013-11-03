@@ -10,7 +10,7 @@
 // into php $_SESSION array to make is easier to use in later contexts
 
 //input file name here, hardcoded so user cannot change.
-$xmlfile = file_get_contents("testxml.xml");
+$xmlfile = file_get_contents("courses.xml");
 
 //convert the file when has been converted into a string by file get contents
 //into an object using the SimpleXML function library

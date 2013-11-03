@@ -2,6 +2,8 @@
 <!--[if IE 8]> 				 <html class="no-js lt-ie9" lang="en" > <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 
+<?php include 'inc/global.php'; ?>
+
 <head>
 	<meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
@@ -29,7 +31,7 @@
 
 	<div class="row">
 		<div class="small-12 columns">
-			<form class="custom">
+			<form class="custom" action="print.php" method="post">
 			  <fieldset>
 			    <legend>Personal Information</legend>
 				<div class="row">
@@ -481,7 +483,7 @@
 							<li>To complete the program as approved with a minimum of 45 units and 3.0 GPA.</li>
 
 						</ul>
-						<a href="print.php" class="button">Continue</a>
+						<input type="submit" class="button">
 					</div>
 			</div>
 
@@ -537,5 +539,6 @@
   <script>
     $(document).foundation();
   </script>
+
 </body>
 </html>

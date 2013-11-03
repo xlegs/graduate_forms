@@ -6,7 +6,7 @@
 // This file converts all the variable contained within a SESSION array 
 // into a serialized form for printing to the document.
 
-if(!($rawformcontents = serialize($_SESSION['form'])))
+if(!($rawformcontents = serialize($_POST)))
     exit;
 echo $rawformcontents;
 ?>
