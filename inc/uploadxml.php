@@ -40,5 +40,10 @@ $xmlArray = ObjtoArray($xmlcontents);
 $_SESSION['xmlDataBase'] = $xmlArray;
 
 //remove the these based on what actually needs to happen
-echo var_dump($xmlArray);
+$x=$_SESSION['xmlDataBase'];
+$x=$x['systems'];
+// $x=$x['systems'];
+echo $x;
+print_r($x);
+// echo "</pre>";
 ?>

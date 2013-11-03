@@ -7,7 +7,7 @@
 <head>
 	<meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>Foundation 4</title>
+  <title>Program of Studies</title>
 
   
   <link rel="stylesheet" href="css/foundation.css">
@@ -112,13 +112,25 @@
 			  <fieldset>
 			    <legend>Applied Mathematics (4 units required)</legend>
 				<div class="row">
-					<div class="small-4 columns">
-					    <label>Course Number One</label>
-					    <input name="amth1" id="amth1" type="text" placeholder="AMTH 000">
+					<div class="small-6 columns">
+					    <label for="amth1">Course Number One</label>
+					    <select id="amth1" name="amth1">
+						    <option SELECTED>Select a course</option>
+						    <option>This is another option</option>
+						    <option>This is another option too</option>
+						    <option>Look, a third option</option>
+						  </select>
+						<p>When a student selects a course from the above drop-down menu, that course's information will appear here.</p>
 					</div>
-					<div class="small-4 columns">
-					    <label>Course Number Two</label>
-					    <input name="amth2" id="amth2" type="text" placeholder="AMTH 000">
+					<div class="small-6 columns">
+					    <label for="amth2">Course Number Two</label>
+					    <select id="amth2" name="amth2">
+						    <option SELECTED>Select a course</option>
+						    <option>This is another option</option>
+						    <option>This is another option too</option>
+						    <option>Look, a third option</option>
+						  </select>
+						<p>When a student selects a course from the above drop-down menu, that course's information will appear here.</p>
 					</div>
 			    </div>
 			    <div class="row">

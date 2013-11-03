@@ -9,7 +9,7 @@
 <head>
 	<meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>Foundation 4</title>
+  <title>Program of Studies</title>
 
   
   <link rel="stylesheet" href="css/foundation.css">
