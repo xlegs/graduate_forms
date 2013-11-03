@@ -20,7 +20,7 @@ $xmlcontents = simplexml_load_string($xmlfile);
 function ObjtoArray(SimpleXMLElement $obj) {
     //convert the object to the an array
     $array = (array)$obj;
-    
+    $att_array = new array;
     //for each of the elements of the of the new array recursively call this function
     foreach( array_slice($array, 0) as $key => $value ) {
 		if( $value instanceof SimpleXMLElement ){
