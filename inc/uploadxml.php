@@ -20,13 +20,13 @@ $xmlcontents = simplexml_load_string($xmlfile);
 function ObjtoArray(SimpleXMLElement $obj) {
     //convert the object to the an array
     $array = (array)$obj;
-    $att_array = new array;
+    $att_array = array();
     //for each of the elements of the of the new array recursively call this function
     foreach( array_slice($array, 0) as $key => $value ) {
 		if( $value instanceof SimpleXMLElement ){
 			$array[$key] = empty($value) ? NULL : ObjtoArray($value);
 		}
-		if( $attributes = $value->attributes()){
+		if( $attributes = $value->attributes){
 			$att_array[$key] = $value; 
 		}
     }
@@ -40,5 +40,5 @@ $xmlArray = ObjtoArray($xmlcontents);
 $_SESSION['xmlDataBase'] = $xmlArray;
 
 //remove the these based on what actually needs to happen
-//echo var_dump($xmlArray);
+echo var_dump($xmlArray);
 ?>
