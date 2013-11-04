@@ -14,15 +14,11 @@
   <link rel="stylesheet" type="text/css" href="css/print.css">
 
   <script src="js/vendor/custom.modernizr.js"></script>
-  <script type="text/javascript">
-  	function onDownload() {
-    document.location = 'data:Application/octet-stream,' +
-                         encodeURIComponent('<?php include 'inc/save.php';?>');
-}
-  </script>
-  
+	  
 </head>
-<body>	<div class="row">
+<body>	
+<?php include 'inc/save.php'; ?>
+	<div class="row">
 		<div class="small-8 columns">
 			<h2>Program of Studies</h2>
 			<h3>Electrical Engineering &middot; Master's Degree</h3>
@@ -30,7 +26,7 @@
 		</div>
 		<div class="small-4 columns">
 			<a href="javascript:window.print()" class="button">Print</a>
-			<a href="javascript:onDownload()" class="button">Save</a>
+			<a href="download.php" target="_blank" class="button">Save</a>
 		</div>
 	</div>
 
@@ -41,29 +37,29 @@
 				<legend>Personal Information</legend>
 				<div class="row">
 					<div class="small-2 columns">
-					    <p><?echo $_POST['firstName'];?></p>
+					    <p><?php echo $_POST['firstName'];?></p>
 					</div>
 					<div class="small-2 columns">
-					    <p><?echo $_POST['middleName'];?></p>
+					    <p><?php echo $_POST['middleName'];?></p>
 					</div>
 					<div class="small-2 columns">
-					    <p><?echo $_POST['lastName'];?></p>
+					    <p><?php echo $_POST['lastName'];?></p>
 					</div>
 					<div class="small-6 columns">
-					    <p><?echo $_POST['SCUid'];?></p>
+					    <p><?php echo $_POST['SCUid'];?></p>
 					</div>
 					
 			    </div>
 			    <div class="row">
 
 					<div class="small-4 columns">
-					    <p><?echo $_POST['homePhone'];?></p>
+					    <p><?php echo $_POST['homePhone'];?></p>
 					</div>
 					<div class="small-4 columns">
-					    <p><?echo $_POST['workPhone'];?></p>
+					    <p><?php echo $_POST['workPhone'];?></p>
 					</div>
 					<div class="small-4 columns">
-					    <p><?echo $_POST['email'];?></p>
+					    <p><?php echo $_POST['email'];?></p>
 					</div>
 			    </div>
 			    <div class="row">
@@ -76,13 +72,13 @@
 			    <legend>Graduate Core Requirements (minimum of 6 units)</legend>
 				<div class="row">
 					<div class="small-4 columns">
-					    <p><?echo $_POST['core1'];?></p>
+					    <p><?php echo $_POST['core1'];?></p>
 					</div>
 					<div class="small-4 columns">
-					    <p><?echo $_POST['core2'];?></p>
+					    <p><?php echo $_POST['core2'];?></p>
 					</div>
 					<div class="small-4 columns">
-					    <p><?echo $_POST['core3'];?></p>
+					    <p><?php echo $_POST['core3'];?></p>
 					</div>
 			    </div>    
 			  </fieldset>
@@ -90,17 +86,17 @@
 			    <legend>Applied Mathematics (4 units required)</legend>
 				<div class="row">
 					<div class="small-4 columns">
-					    <p><?echo $_POST['amth1'];?></p>
+					    <p><?php echo $_POST['amth1'];?></p>
 					</div>
 					<div class="small-4 columns">
-					    <p><?echo $_POST['amth2'];?></p>
+					    <p><?php echo $_POST['amth2'];?></p>
 					</div>
 			    </div>
 			  </fieldset>
 			  <fieldset>
 			    <legend>Electrical Engineering Core Focus Area: Systems</legend>
 				<div class="row">
-					<? 
+					<?php
 					foreach($_POST['focus1'] as $val)
 		            {
 		                echo '<div class="small-4 columns">';
@@ -109,7 +105,7 @@
 		            }
 	            	?>
 					<div class="small-4 columns">
-					    <p><?echo $_POST['focus3'];?></p>
+					    <p><?php echo $_POST['focus3'];?></p>
 					</div>
 			    </div>    
 			  </fieldset>
@@ -117,10 +113,10 @@
 			    <legend>Core Breadth: Electronics and Communication &amp; Microwave (2 units required per area)</legend>
 			    <div class="row">
 					<div class="small-4 columns">
-					    <p><?echo $_POST['breadth1'];?></p>
+					    <p><?php echo $_POST['breadth1'];?></p>
 					</div>
 					<div class="small-4 columns">
-					    <p><?echo $_POST['breadth2'];?></p>
+					    <p><?php echo $_POST['breadth2'];?></p>
 					</div>
 				</div>
 			  </fieldset>
@@ -155,7 +151,7 @@
 			    <div class="row">
 					<div class="small-12 columns">
 						<p>
-						<?
+						<?php
 							if ($_POST['institution']=="Other") {
 								echo $_POST['transferInstitution'];
 							} else {

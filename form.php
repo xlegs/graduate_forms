@@ -145,7 +145,7 @@
 			    <div class="row">
 					<div class="small-6 columns">
 						<p>Check any two of the following courses:</p>
-					<?
+					<?php
 						$temp = $_SESSION['xmlDataBase']['systems']['pairnumbers'][1];
 						$i=0;
 						foreach ($temp as $key => $value) {
@@ -160,7 +160,7 @@
 			    
 					<div class="small-6 columns">
 						<p>Choose one from the following courses:</p>
-					<?
+					<?php
 						$temp = $_SESSION['xmlDataBase']['systems']['pairnumbers'][2];
 						$i=0;
 						foreach ($temp as $key => $value) {
@@ -181,7 +181,7 @@
 						 <label for="breadth1">Electronics and Communication</label>
 						<select id="breadth1" name="breadth1">
 						    <option SELECTED value="">Select a course</option>
-							<?
+							<?php
 								$temp = $_SESSION['xmlDataBase']['electronics']['courses'];
 								$i=0;
 								foreach ($temp as $key => $value) {
@@ -197,7 +197,7 @@
 						 <label for="breadth2">Microwave</label>
 						<select id="breadth2" name="breadth2">
 						    <option SELECTED value="">Select a course</option>
-							<?
+							<?php
 								$temp = $_SESSION['xmlDataBase']['communication_and_microwave']['courses'];
 								$i=0;
 								foreach ($temp as $key => $value) {
@@ -501,8 +501,11 @@
 					</div>
 			    </div>
 			    <div class="row">
-					<div class="small-12 columns">
+					<div class="small-8 columns">
 						<p>Note: Prerequisite courses are not included in the total SCU unit count.</p>
+					</div>
+					<div class="small-4 columns">
+						<a class="button small secondary count">Count</a>
 					</div>
 			    </div>
 
@@ -528,11 +531,7 @@
 
 		
 
-  <script>
-  document.write('<script src=' +
-  ('__proto__' in {} ? 'js/vendor/zepto' : 'js/vendor/jquery') +
-  '.js><\/script>')
-  </script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   
   <script src="js/foundation.min.js"></script>
   <!--
@@ -573,6 +572,13 @@
   
   <script>
     $(document).foundation();
+  </script>
+  <script type="text/javascript" src="js/form_functions.js"></script>
+  <script type="text/javascript">
+
+  $('.count').click(function() {
+  alert( "Handler for .change() called." );
+});
   </script>
 
 </body>

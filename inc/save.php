@@ -8,5 +8,6 @@
 
 if(!($rawformcontents = serialize($_POST)))
     exit;
-echo $rawformcontents;
+$_SESSION['file_string'] = $rawformcontents;
+
 ?>

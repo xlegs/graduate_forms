@@ -1,6 +1,7 @@
 function addUnits () {
 	var scuUnits=0;
 	var transferUnits=0;
+	var totalUnits=0;
 	var temp=0;
 
 //Count Core
@@ -18,8 +19,8 @@ function addUnits () {
 					scuUnits+=2;
 				};
 			};
-		};
-	};)
+		});
+	
 
 //Count AMTH
 	$("input[name~='amth']").each(function() {
@@ -34,7 +35,7 @@ function addUnits () {
 			
 			scuUnits+=temp;
 		}
-	};);
+	});
 
 
 //Count Systems Core
@@ -46,7 +47,7 @@ function addUnits () {
 		temp = temp.charAt(temp.length-1);
 		
 		scuUnits+=temp;
-	};);
+	});
 
 //Count Breadth
 	$("input[name~='breadth']").each(function() {
@@ -61,7 +62,7 @@ function addUnits () {
 			
 			scuUnits+=temp;
 		}
-	};);
+	});
 
 //Count Electives
 	$("input[name~='elective'][type='number']").each(function() {
@@ -88,7 +89,7 @@ function addUnits () {
 			
 			
 		}
-	};);
+	});
 
 //Count transfer
 	$("input[name~='transfer'][type='number']").each(function() {
@@ -120,5 +121,10 @@ function addUnits () {
 			
 			
 		}
-	};);
+	});
+
+ //Output
+ 	$('#transferUnits').text(transferUnits);
+ 	$('#totalSCUUnits').text(scuUnits);
+ 	$('#totalUnits').text(scuUnits+transferUnits);
 }
