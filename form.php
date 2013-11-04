@@ -145,20 +145,32 @@
 			    <div class="row">
 					<div class="small-6 columns">
 						<p>Check any two of the following courses:</p>
-					
-					    <label><input name="focus1[]" id="focus1-1" type="checkbox" value="ENGR 000 - 2"> ELEN 000 - Course Name - <a href="">More Info</a></label>
-					    <label><input name="focus1[]" id="focus1-2" type="checkbox" value="ENGR 001 - 2"> ELEN 000 - Course Name - <a href="">More Info</a></label>
-					    <label><input name="focus1[]" id="focus1-3" type="checkbox" value="ENGR 002 - 2"> ELEN 000 - Course Name - <a href="">More Info</a></label>
-					
+					<?
+						$temp = $_SESSION['xmlDataBase']['systems']['pairnumbers'][1];
+						$i=0;
+						foreach ($temp as $key => $value) {
+							$i++;
+							echo "<label>";
+							echo '<input name="focus1[]" id="focus1-'.$i.'" type="checkbox" value="'.$key.'"> '.$key.' - '.$value['name'].' - <a href="">More Info</a>';
+							echo "</label>";
+						}
+					?>
 					</div>
 
 			    
 					<div class="small-6 columns">
 						<p>Choose one from the following courses:</p>
-					
-					    <label><input name="focus3" id="focus3-1" type="radio" value="ENGR 000 - 2"> ELEN 000 - Course Name - <a href="">More Info</a></label>
-					    <label><input name="focus3" id="focus3-2" type="radio" value="ENGR 000 - 2"> ELEN 000 - Course Name - <a href="">More Info</a></label>
-					    <label><input name="focus3" id="focus3-3" type="radio" value="ENGR 000 - 2"> ELEN 000 - Course Name - <a href="">More Info</a></label>
+					<?
+						$temp = $_SESSION['xmlDataBase']['systems']['pairnumbers'][2];
+						$i=0;
+						foreach ($temp as $key => $value) {
+							$i++;
+							echo "<label>";
+							echo '<input name="focus3" id="focus3-'.$i.'" type="radio" value="'.$key.'"> '.$key.' - '.$value['name'].' - <a href="">More Info</a>';
+							echo "</label>";
+						}
+					?>
+
 					</div>
 			    </div>
 			  </fieldset>
@@ -169,9 +181,15 @@
 						 <label for="breadth1">Electronics and Communication</label>
 						<select id="breadth1" name="breadth1">
 						    <option SELECTED value="">Select a course</option>
-						    <option value="ENGR 000 - 2">This is another option</option>
-						    <option value="ENGR 000 - 2">This is another option too</option>
-						    <option value="ENGR 000 - 2">Look, a third option</option>
+							<?
+								$temp = $_SESSION['xmlDataBase']['electronics']['courses'];
+								$i=0;
+								foreach ($temp as $key => $value) {
+									$i++;
+									echo '<option value="'.$key.' - '.$value['units'].'"> '.$key.' - '.$value['name'].'</option>';
+								}
+							?>
+
 						  </select>
 						<p>When a student selects a course from the above drop-down menu, that course's information will appear here.</p>
 					</div>
@@ -179,9 +197,14 @@
 						 <label for="breadth2">Microwave</label>
 						<select id="breadth2" name="breadth2">
 						    <option SELECTED value="">Select a course</option>
-						    <option value="ENGR 000 - 2">This is another option</option>
-						    <option value="ENGR 000 - 2">This is another option too</option>
-						    <option value="ENGR 000 - 2">Look, a third option</option>
+							<?
+								$temp = $_SESSION['xmlDataBase']['communication_and_microwave']['courses'];
+								$i=0;
+								foreach ($temp as $key => $value) {
+									$i++;
+									echo '<option value="'.$key.' - '.$value['units'].'"> '.$key.' - '.$value['name'].'</option>';
+								}
+							?>
 						  </select>
 						<p>When a student selects a course from the above drop-down menu, that course's information will appear here.</p>
 
