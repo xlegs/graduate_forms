@@ -510,14 +510,17 @@
 			    <hr/>
 			    <div class="row">
 					<div class="small-4 columns">
-					    <p>Transfer Units: <span id="transferUnits">0</span></p>
+					    <p>Transfer Units: <span class="transferUnits">0</span></p>
 					</div>
 					<div class="small-4 columns">
-					    <p>Total SCU Units: <span id="totalSCUUnits">0</span></p>
+					    <p>Total SCU Units: <span class="totalSCUUnits">0</span></p>
 					</div>
 					<div class="small-4 columns">
-					    <p>Total Units (45 quarter units minimum): <span id="totalUnits">0</span></p>
+					    <p>Total Units (45 quarter units min): <span class="totalUnits">0</span></p>
 					</div>
+					<input type="hidden" name="transferUnits" class="transferUnits">
+					<input type="hidden" name="totalSCUUnits" class="totalSCUUnits">
+					<input type="hidden" name="totalUnits" class="totalUnits">
 			    </div>
 			    <div class="row">
 					<div class="small-8 columns">

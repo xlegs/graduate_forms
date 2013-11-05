@@ -119,7 +119,7 @@ function addUnits () {
 	});
 
  //Output
- 	$('#transferUnits').text(transferUnits);
- 	$('#totalSCUUnits').text(scuUnits);
- 	$('#totalUnits').text(scuUnits+transferUnits);
+ 	$('.transferUnits').text(transferUnits).val(transferUnits);
+ 	$('.totalSCUUnits').text(scuUnits).val(scuUnits);
+ 	$('.totalUnits').text(scuUnits+transferUnits).val(scuUnits+transferUnits);
 }

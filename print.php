@@ -181,13 +181,13 @@
 			    <hr/>
 			    <div class="row">
 					<div class="small-4 columns">
-					    <p>Transfer Units: <span>0</span></p>
+					    <p>Transfer Units: <span><?php echo $_POST['transferUnits'];?></span></p>
 					</div>
 					<div class="small-4 columns">
-					    <p>Total SCU Units: <span>0</span></p>
+					    <p>Total SCU Units: <span><?php echo $_POST['totalSCUUnits'];?></span></p>
 					</div>
 					<div class="small-4 columns">
-					    <p>Total Units (45 quarter units minimum): <span>0</span></p>
+					    <p>Total Units (45 quarter units min): <span><?php echo $_POST['totalUnits'];?></span></p>
 					</div>
 			    </div>
 			    <div class="row">
