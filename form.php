@@ -37,15 +37,15 @@
 				<div class="row">
 					<div class="small-4 columns">
 					    <label>First Name</label>
-					    <input name="firstName" id="firstName" type="text" placeholder="First Name">
+					    <input name="firstName" id="firstName" type="text" placeholder="First Name" value="<?php echo $file_data['firstName']?>">
 					</div>
 					<div class="small-4 columns">
 					    <label>Middle Name</label>
-					    <input name="middleName" id="middleName" type="text" placeholder="Middle Name">
+					    <input name="middleName" id="middleName" type="text" placeholder="Middle Name" value="<?php echo $file_data['middleName']?>">
 					</div>
 					<div class="small-4 columns">
 					    <label>Last Name</label>
-					    <input name="lastName" id="lastName" type="text" placeholder="Last Name">
+					    <input name="lastName" id="lastName" type="text" placeholder="Last Name" value="<?php echo $file_data['lastName']?>">
 					</div>
 			    </div>
 			    <div class="row">
@@ -56,29 +56,29 @@
 					    		<span class="prefix">W</span>
 					    	</div>
 							<div class="small-10 columns">
-					    		<input name="SCUid" id="SCUid" type="text" placeholder="0123456">
+					    		<input name="SCUid" id="SCUid" type="text" placeholder="0123456" value="<?php echo $file_data['SCUid']?>">
 					    	</div>
 					    </div>
 					</div>
 					<div class="small-4 columns">
 					    <label>Home Phone</label>
-					    <input name="homePhone" id="homePhone" type="text" placeholder="(408) 555-5555">
+					    <input name="homePhone" id="homePhone" type="text" placeholder="(408) 555-5555" value="<?php echo $file_data['homePhone']?>">
 					</div>
 					<div class="small-4 columns">
 					    <label>Work Phone</label>
-					    <input name="workPhone" id="workPhone" type="text" placeholder="(408) 555-5555">
+					    <input name="workPhone" id="workPhone" type="text" placeholder="(408) 555-5555" value="<?php echo $file_data['workPhone']?>">
 					</div>
 			    </div>
 			    <div class="small-centered row">
 					<div class="small-4 columns">
 					    <label>E-mail Address</label>
-							<input name="email" id="email" type="email" placeholder="user@domain.com">
+							<input name="email" id="email" type="email" placeholder="user@domain.com" value="<?php echo $file_data['email']?>">
 					</div>
 
 					<div class="small-4 columns">
 					    <label for="advisor">Faculty Advisor</label>
 						<select name="advisor" id="advisor">
-						    <option SELECTED>Select an advisor</option>
+						    <option>Select an advisor</option>
 						    <option>This is another option</option>
 						    <option>This is another option too</option>
 						    <option>Look, a third option</option>
@@ -91,15 +91,15 @@
 				<div class="row">
 					<div class="small-4 columns">
 					    <label>Emerging Topics in Engineering</label>
-					    <input name="core1" id="core1" type="text" placeholder="ELEN 000">
+					    <input name="core1" id="core1" type="text" placeholder="ELEN 000" value="<?php echo $file_data['core1']?>">
 					</div>
 					<div class="small-4 columns">
 					    <label>Engineering and Business/Entrepreneurship</label>
-					    <input name="core2" id="core2" type="text" placeholder="ELEN 000">
+					    <input name="core2" id="core2" type="text" placeholder="ELEN 000" value="<?php echo $file_data['core2']?>">
 					</div>
 					<div class="small-4 columns">
 					    <label>Engineering and Society</label>
-					    <input name="core3" id="core3" type="text" placeholder="ELEN 000">
+					    <input name="core3" id="core3" type="text" placeholder="ELEN 000" value="<?php echo $file_data['core3']?>">
 					</div>
 			    </div>
 				<div class="row">
@@ -115,7 +115,7 @@
 					<div class="small-6 columns">
 					    <label for="amth1">Course Number One</label>
 					    <select id="amth1" name="amth1">
-						    <option SELECTED value="">Select a course</option>
+						    <option value="">Select a course</option>
 						    <option value="ENGR 000 - 2">This is another option</option>
 						    <option value="ENGR 000 - 2">This is another option too</option>
 						    <option value="ENGR 000 - 2">Look, a third option</option>
@@ -125,7 +125,7 @@
 					<div class="small-6 columns">
 					    <label for="amth2">Course Number Two</label>
 					    <select id="amth2" name="amth2">
-						    <option SELECTED value="">Select a course</option>
+						    <option value="">Select a course</option>
 						    <option value="ENGR 000 - 2">This is another option</option>
 						    <option value="ENGR 000 - 2">This is another option too</option>
 						    <option value="ENGR 000 - 2">Look, a third option</option>
@@ -150,8 +150,13 @@
 						$i=0;
 						foreach ($temp as $key => $value) {
 							$i++;
+							$str=$key.' - '.$value['units'];
 							echo "<label>";
-							echo '<input name="focus1[]" id="focus1-'.$i.'" type="checkbox" value="'.$key.'"> '.$key.' - '.$value['name'].' - <a href="">More Info</a>';
+							echo "<input ";
+							foreach ($file_data['focus1'] as $val) {
+								if ($val == $str) echo "CHECKED";
+							}
+							echo ' name="focus1[]" id="focus1-'.$i.'" type="checkbox" value="'.$key.' - '.$value['units'].'"> '.$key.' - '.$value['name'].' - '.$value["units"];
 							echo "</label>";
 						}
 					?>
@@ -165,8 +170,11 @@
 						$i=0;
 						foreach ($temp as $key => $value) {
 							$i++;
+							$str=$key.' - '.$value['units'];
 							echo "<label>";
-							echo '<input name="focus3" id="focus3-'.$i.'" type="radio" value="'.$key.'"> '.$key.' - '.$value['name'].' - <a href="">More Info</a>';
+							echo "<input ";
+							if ($file_data['focus3'] == $str) echo "CHECKED";
+							echo ' name="focus3" id="focus3-'.$i.'" type="radio" value="'.$key.' - '.$value['units'].'"> '.$key.' - '.$value['name'].' - '.$value['units'];
 							echo "</label>";
 						}
 					?>
@@ -180,13 +188,16 @@
 					<div class="small-6 columns">
 						 <label for="breadth1">Electronics and Communication</label>
 						<select id="breadth1" name="breadth1">
-						    <option SELECTED value="">Select a course</option>
+						    <option value="">Select a course</option>
 							<?php
 								$temp = $_SESSION['xmlDataBase']['electronics']['courses'];
 								$i=0;
 								foreach ($temp as $key => $value) {
 									$i++;
-									echo '<option value="'.$key.' - '.$value['units'].'"> '.$key.' - '.$value['name'].'</option>';
+									$str=$key.' - '.$value['units'];
+									echo "<option ";
+									if ($file_data['breadth1'] == $str) echo "SELECTED";
+									echo ' value="'.$key.' - '.$value['units'].'"> '.$key.' - '.$value['name'].' - '.$value['units'].'</option>';
 								}
 							?>
 
@@ -196,13 +207,16 @@
 					<div class="small-6 columns">
 						 <label for="breadth2">Microwave</label>
 						<select id="breadth2" name="breadth2">
-						    <option SELECTED value="">Select a course</option>
+						    <option value="">Select a course</option>
 							<?php
 								$temp = $_SESSION['xmlDataBase']['communication_and_microwave']['courses'];
 								$i=0;
 								foreach ($temp as $key => $value) {
 									$i++;
-									echo '<option value="'.$key.' - '.$value['units'].'"> '.$key.' - '.$value['name'].'</option>';
+									$str=$key.' - '.$value['units'];
+									echo "<option ";
+									if ($file_data['breadth2'] == $str) echo "SELECTED";
+									echo ' value="'.$key.' - '.$value['units'].'"> '.$key.' - '.$value['name'].' - '.$value['units'].'</option>';
 								}
 							?>
 						  </select>
@@ -227,90 +241,90 @@
 				<div class="row">
 					<div class="small-3 columns">
 					    <label>Course Number</label>
-					    <input name="elective1_number" id="elective1_number" type="text" placeholder="ELEN 000">
+					    <input name="elective1_number" id="elective1_number" type="text" placeholder="ELEN 000" value="<?php echo $file_data['elective1_number']?>">
 					</div>
 					<div class="small-7 columns">
 					    <label>Course Title</label>
-					    <input name="elective1_title" id="elective1_title" type="text" placeholder="Course Title">
+					    <input name="elective1_title" id="elective1_title" type="text" placeholder="Course Title" value="<?php echo $file_data['elective1_title']?>">
 					</div>
 					<div class="small-2 columns">
 					    <label>Number of Units</label>
-					    <input name="elective1_units" id="elective1_units" type="number"  min="0" max="5" value="0">
+					    <input name="elective1_units" id="elective1_units" type="number"  min="0" max="5" value="<?php echo $file_data['elective1_units']?>">
 					</div>
 					
 			    </div>
 			    <div class="row">
 					<div class="small-3 columns">
 					    <label>Course Number</label>
-					    <input name="elective2_number" id="elective2_number" type="text" placeholder="ELEN 000">
+					    <input name="elective2_number" id="elective2_number" type="text" placeholder="ELEN 000" value="<?php echo $file_data['elective2_number']?>">
 					</div>
 					<div class="small-7 columns">
 					    <label>Course Title</label>
-					    <input name="elective2_title" id="elective2_title" type="text" placeholder="Course Title">
+					    <input name="elective2_title" id="elective2_title" type="text" placeholder="Course Title" value="<?php echo $file_data['elective2_title']?>">
 					</div>
 					<div class="small-2 columns">
 					    <label>Number of Units</label>
-					    <input name="elective2_units" id="elective2_units" type="number"  min="0" max="5" value="0">
+					    <input name="elective2_units" id="elective2_units" type="number"  min="0" max="5" value="<?php echo $file_data['elective2_units']?>">
 					</div>
 					
 			    </div>
 			    <div class="row">
 					<div class="small-3 columns">
 					    <label>Course Number</label>
-					    <input name="elective3_number" id="elective3_number" type="text" placeholder="ELEN 000">
+					    <input name="elective3_number" id="elective3_number" type="text" placeholder="ELEN 000" value="<?php echo $file_data['elective3_number']?>">
 					</div>
 					<div class="small-7 columns">
 					    <label>Course Title</label>
-					    <input name="elective3_title" id="elective3_title" type="text" placeholder="Course Title">
+					    <input name="elective3_title" id="elective3_title" type="text" placeholder="Course Title" value="<?php echo $file_data['elective3_title']?>">
 					</div>
 					<div class="small-2 columns">
 					    <label>Number of Units</label>
-					    <input name="elective3_units" id="elective3_units" type="number"  min="0" max="5" value="0">
+					    <input name="elective3_units" id="elective3_units" type="number"  min="0" max="5" value="<?php echo $file_data['elective3_units']?>">
 					</div>
 					
 			    </div>
 			    <div class="row">
 					<div class="small-3 columns">
 					    <label>Course Number</label>
-					    <input name="elective4_number" id="elective4_number" type="text" placeholder="ELEN 000">
+					    <input name="elective4_number" id="elective4_number" type="text" placeholder="ELEN 000" value="<?php echo $file_data['elective4_number']?>">
 					</div>
 					<div class="small-7 columns">
 					    <label>Course Title</label>
-					    <input name="elective4_title" id="elective4_title" type="text" placeholder="Course Title">
+					    <input name="elective4_title" id="elective4_title" type="text" placeholder="Course Title" value="<?php echo $file_data['elective4_title']?>">
 					</div>
 					<div class="small-2 columns">
 					    <label>Number of Units</label>
-					    <input name="elective4_units" id="elective4_units" type="number"  min="0" max="5" value="0">
+					    <input name="elective4_units" id="elective4_units" type="number"  min="0" max="5" value="<?php echo $file_data['elective4_units']?>">
 					</div>
 					
 			    </div>
 			    <div class="row">
 					<div class="small-3 columns">
 					    <label>Course Number</label>
-					    <input name="elective5_number" id="elective5_number" type="text" placeholder="ELEN 000">
+					    <input name="elective5_number" id="elective5_number" type="text" placeholder="ELEN 000" value="<?php echo $file_data['elective5_number']?>">
 					</div>
 					<div class="small-7 columns">
 					    <label>Course Title</label>
-					    <input name="elective5_title" id="elective5_title" type="text" placeholder="Course Title">
+					    <input name="elective5_title" id="elective5_title" type="text" placeholder="Course Title" value="<?php echo $file_data['elective5_title']?>">
 					</div>
 					<div class="small-2 columns">
 					    <label>Number of Units</label>
-					    <input name="elective5_units" id="elective5_units" type="number"  min="0" max="5" value="0">
+					    <input name="elective5_units" id="elective5_units" type="number"  min="0" max="5" value="<?php echo $file_data['elective5_units']?>">
 					</div>
 					
 			    </div>
 			    <div class="row">
 					<div class="small-3 columns">
 					    <label>Course Number</label>
-					    <input name="elective6_number" id="elective6_number" type="text" placeholder="ELEN 000">
+					    <input name="elective6_number" id="elective6_number" type="text" placeholder="ELEN 000" value="<?php echo $file_data['elective6_number']?>">
 					</div>
 					<div class="small-7 columns">
 					    <label>Course Title</label>
-					    <input name="elective6_title" id="elective6_title" type="text" placeholder="Course Title">
+					    <input name="elective6_title" id="elective6_title" type="text" placeholder="Course Title" value="<?php echo $file_data['elective6_title']?>">
 					</div>
 					<div class="small-2 columns">
 					    <label>Number of Units</label>
-					    <input name="elective6_units" id="elective6_units" type="number"  min="0" max="5" value="0">
+					    <input name="elective6_units" id="elective6_units" type="number"  min="0" max="5" value="<?php echo $file_data['elective6_units']?>">
 					</div>
 					
 			    </div>
@@ -335,16 +349,16 @@
 					<div class="small-6 columns">
 					    <label for="institution">Institution</label>
 						<select name="institution" id="institution">
-						    <option SELECTED value="">Select an institution</option>
-						    <option value="Santa Clara University">Santa Clara University (12 units maximum)</option>
-						    <option value="Santa Clara University 5 Year Program">Santa Clara University 5 Year Program (20 units maximum)</option>
-						    <option value="Other">Other (9 units maximum)</option>
+						    <option value="">Select an institution</option>
+						    <option <?php if ($file_data['institution']=="Santa Clara University") {echo "SELECTED ";}?> value="Santa Clara University">Santa Clara University (12 units maximum)</option>
+						    <option <?php if ($file_data['institution']=="Santa Clara University 5 Year Program") {echo "SELECTED ";}?>value="Santa Clara University 5 Year Program">Santa Clara University 5 Year Program (20 units maximum)</option>
+						    <option <?php if ($file_data['institution']==" Other") {echo "SELECTED ";}?>value="Other">Other (9 units maximum)</option>
 						  </select>
 					</div>
 
 					<div class="small-6 columns">
 					    <label>If other institution, please name:</label>
-						<input name="transferInstitution" id="transferInstitution" type="text" placeholder="Institution Name">
+						<input name="transferInstitution" id="transferInstitution" type="text" placeholder="Institution Name" value="<?php echo $file_data['transferInstitution']?>">
 					</div>
 
 			    </div>
@@ -352,141 +366,146 @@
 				<div class="row">
 					<div class="small-2 columns">
 					    <label>Course Number</label>
-					    <input name="transfer1_number" id="transfer1_number" type="text" placeholder="ELEN 000">
+					    <input name="transfer1_number" id="transfer1_number" type="text" placeholder="ELEN 000" value="<?php echo $file_data['transfer1_number']?>">
 					</div>
 					<div class="small-4 columns">
 					    <label>Course Title</label>
-					    <input name="transfer1_title" id="transfer1_title" type="text" placeholder="Course Title">
+					    <input name="transfer1_title" id="transfer1_title" type="text" placeholder="Course Title" value="<?php echo $file_data['transfer1_title']?>">
 					</div>
 					<div class="small-2 columns">
 					    <label>Number of Units</label>
-					    <input name="transfer1_units" id="transfer1_units" type="number"  min="0" max="5" value="0">
+					    <input name="transfer1_units" id="transfer1_units" type="number"  min="0" max="5" value="<?php echo $file_data['transfer1_units']?>">
 					</div>
 					<div class="small-2 columns">
 					    <label>Grade</label>
-					    <input name="transfer1_grade" id="transfer1_grade" type="text" placeholder="Grade">
+					    <input name="transfer1_grade" id="transfer1_grade" type="text" placeholder="Grade" value="<?php echo $file_data['transfer1_grade']?>">
 					</div>
 					<div class="small-2 columns">
 					    <label>Year Completed</label>
-					    <input name="transfer1_year" id="transfer1_year" type="text" placeholder="YYYY">
+					    <input name="transfer1_year" id="transfer1_year" type="text" placeholder="YYYY" value="<?php echo $file_data['transfer1_year']?>">
 					</div>
 
 			    </div>
 				<div class="row">
 					<div class="small-2 columns">
 					    <label>Course Number</label>
-					    <input name="transfer2_number" id="transfer2_number" type="text" placeholder="ELEN 000">
+					    <input name="transfer2_number" id="transfer2_number" type="text" placeholder="ELEN 000" value="<?php echo $file_data['transfer2_number']?>">
 					</div>
 					<div class="small-4 columns">
 					    <label>Course Title</label>
-					    <input name="transfer2_title" id="transfer2_title" type="text" placeholder="Course Title">
+					    <input name="transfer2_title" id="transfer2_title" type="text" placeholder="Course Title" value="<?php echo $file_data['transfer2_title']?>">
 					</div>
 					<div class="small-2 columns">
 					    <label>Number of Units</label>
-					    <input name="transfer2_units" id="transfer2_units" type="number"  min="0" max="5" value="0">
+					    <input name="transfer2_units" id="transfer2_units" type="number"  min="0" max="5" value="<?php echo $file_data['transfer2_units']?>">
 					</div>
 					<div class="small-2 columns">
 					    <label>Grade</label>
-					    <input name="transfer2_grade" id="transfer2_grade" type="text" placeholder="Grade">
+					    <input name="transfer2_grade" id="transfer2_grade" type="text" placeholder="Grade" value="<?php echo $file_data['transfer2_grade']?>">
 					</div>
 					<div class="small-2 columns">
 					    <label>Year Completed</label>
-					    <input name="transfer2_year" id="transfer2_year" type="text" placeholder="YYYY">
+					    <input name="transfer2_year" id="transfer2_year" type="text" placeholder="YYYY" value="<?php echo $file_data['transfer2_year']?>">
 					</div>
 
 			    </div>
 				<div class="row">
 					<div class="small-2 columns">
 					    <label>Course Number</label>
-					    <input name="transfer3_number" id="transfer3_number" type="text" placeholder="ELEN 000">
+					    <input name="transfer3_number" id="transfer3_number" type="text" placeholder="ELEN 000" value="<?php echo $file_data['transfer3_number']?>">
 					</div>
 					<div class="small-4 columns">
 					    <label>Course Title</label>
-					    <input name="transfer3_title" id="transfer3_title" type="text" placeholder="Course Title">
+					    <input name="transfer3_title" id="transfer3_title" type="text" placeholder="Course Title" value="<?php echo $file_data['transfer3_title']?>">
 					</div>
 					<div class="small-2 columns">
 					    <label>Number of Units</label>
-					    <input name="transfer3_units" id="transfer3_units" type="number"  min="0" max="5" value="0">
+					    <input name="transfer3_units" id="transfer3_units" type="number"  min="0" max="5" value="<?php echo $file_data['transfer3_units']?>">
 					</div>
 					<div class="small-2 columns">
 					    <label>Grade</label>
-					    <input name="transfer3_grade" id="transfer3_grade" type="text" placeholder="Grade">
+					    <input name="transfer3_grade" id="transfer3_grade" type="text" placeholder="Grade" value="<?php echo $file_data['transfer3_grade']?>">
 					</div>
 					<div class="small-2 columns">
 					    <label>Year Completed</label>
-					    <input name="transfer3_year" id="transfer3_year" type="text" placeholder="YYYY">
+					    <input name="transfer3_year" id="transfer3_year" type="text" placeholder="YYYY" value="<?php echo $file_data['transfer3_year']?>">
 					</div>
 
 			    </div>
+
 				<div class="row">
 					<div class="small-2 columns">
 					    <label>Course Number</label>
-					    <input name="transfer4_number" id="transfer4_number" type="text" placeholder="ELEN 000">
+					    <input name="transfer4_number" id="transfer4_number" type="text" placeholder="ELEN 000" value="<?php echo $file_data['transfer4_number']?>">
 					</div>
 					<div class="small-4 columns">
 					    <label>Course Title</label>
-					    <input name="transfer4_title" id="transfer4_title" type="text" placeholder="Course Title">
+					    <input name="transfer4_title" id="transfer4_title" type="text" placeholder="Course Title" value="<?php echo $file_data['transfer4_title']?>">
 					</div>
 					<div class="small-2 columns">
 					    <label>Number of Units</label>
-					    <input name="transfer4_units" id="transfer4_units" type="number"  min="0" max="5" value="0">
+					    <input name="transfer4_units" id="transfer4_units" type="number"  min="0" max="5" value="<?php echo $file_data['transfer4_units']?>">
 					</div>
 					<div class="small-2 columns">
 					    <label>Grade</label>
-					    <input name="transfer4_grade" id="transfer4_grade" type="text" placeholder="Grade">
+					    <input name="transfer4_grade" id="transfer4_grade" type="text" placeholder="Grade" value="<?php echo $file_data['transfer4_grade']?>">
 					</div>
 					<div class="small-2 columns">
 					    <label>Year Completed</label>
-					    <input name="transfer4_year" id="transfer4_year" type="text" placeholder="YYYY">
+					    <input name="transfer4_year" id="transfer4_year" type="text" placeholder="YYYY" value="<?php echo $file_data['transfer4_year']?>">
 					</div>
 
 			    </div>
+
 				<div class="row">
 					<div class="small-2 columns">
 					    <label>Course Number</label>
-					    <input name="transfer5_number" id="transfer5_number" type="text" placeholder="ELEN 000">
+					    <input name="transfer5_number" id="transfer5_number" type="text" placeholder="ELEN 000" value="<?php echo $file_data['transfer5_number']?>">
 					</div>
 					<div class="small-4 columns">
 					    <label>Course Title</label>
-					    <input name="transfer5_title" id="transfer5_title" type="text" placeholder="Course Title">
+					    <input name="transfer5_title" id="transfer5_title" type="text" placeholder="Course Title" value="<?php echo $file_data['transfer5_title']?>">
 					</div>
 					<div class="small-2 columns">
 					    <label>Number of Units</label>
-					    <input name="transfer5_units" id="transfer5_units" type="number"  min="0" max="5" value="0">
+					    <input name="transfer5_units" id="transfer5_units" type="number"  min="0" max="5" value="<?php echo $file_data['transfer5_units']?>">
 					</div>
 					<div class="small-2 columns">
 					    <label>Grade</label>
-					    <input name="transfer5_grade" id="transfer5_grade" type="text" placeholder="Grade">
+					    <input name="transfer5_grade" id="transfer5_grade" type="text" placeholder="Grade" value="<?php echo $file_data['transfer5_grade']?>">
 					</div>
 					<div class="small-2 columns">
 					    <label>Year Completed</label>
-					    <input name="transfer5_year" id="transfer5_year" type="text" placeholder="YYYY">
+					    <input name="transfer5_year" id="transfer5_year" type="text" placeholder="YYYY" value="<?php echo $file_data['transfer5_year']?>">
 					</div>
 
 			    </div>
+
+
 				<div class="row">
 					<div class="small-2 columns">
 					    <label>Course Number</label>
-					    <input name="transfer6_number" id="transfer6_number" type="text" placeholder="ELEN 000">
+					    <input name="transfer6_number" id="transfer6_number" type="text" placeholder="ELEN 000" value="<?php echo $file_data['transfer6_number']?>">
 					</div>
 					<div class="small-4 columns">
 					    <label>Course Title</label>
-					    <input name="transfer6_title" id="transfer6_title" type="text" placeholder="Course Title">
+					    <input name="transfer6_title" id="transfer6_title" type="text" placeholder="Course Title" value="<?php echo $file_data['transfer6_title']?>">
 					</div>
 					<div class="small-2 columns">
 					    <label>Number of Units</label>
-					    <input name="transfer6_units" id="transfer6_units" type="number"  min="0" max="5" value="0">
+					    <input name="transfer6_units" id="transfer6_units" type="number"  min="0" max="5" value="<?php echo $file_data['transfer6_units']?>">
 					</div>
 					<div class="small-2 columns">
 					    <label>Grade</label>
-					    <input name="transfer6_grade" id="transfer6_grade" type="text" placeholder="Grade">
+					    <input name="transfer6_grade" id="transfer6_grade" type="text" placeholder="Grade" value="<?php echo $file_data['transfer6_grade']?>">
 					</div>
 					<div class="small-2 columns">
 					    <label>Year Completed</label>
-					    <input name="transfer6_year" id="transfer6_year" type="text" placeholder="YYYY">
+					    <input name="transfer6_year" id="transfer6_year" type="text" placeholder="YYYY" value="<?php echo $file_data['transfer6_year']?>">
 					</div>
 
 			    </div>
+
 				
 			    <hr/>
 			    <div class="row">
@@ -577,9 +596,10 @@
   <script type="text/javascript">
 
   $('.count').click(function() {
-  alert( "Handler for .change() called." );
+  addUnits();
 });
   </script>
+
 
 </body>
 </html>

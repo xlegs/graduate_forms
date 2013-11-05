@@ -5,7 +5,7 @@ function addUnits () {
 	var temp=0;
 
 //Count Core
-	$( "input[name~='core']" ).each(function() {
+	$( "input[name*='core']" ).each(function() {
 		temp = $(this).val().trim();
 
 		if (temp == '') {
@@ -20,68 +20,63 @@ function addUnits () {
 				};
 			};
 		});
-	
 
-//Count AMTH
-	$("input[name~='amth']").each(function() {
-		temp = $(this).val().trim();
 
+//Count Dropdowns
+	$(".custom.dropdown .current").each(function() {
+		temp = $(this).text().trim();
+		
 		if (temp == '') {
 			//No Course Entered
 		} else{
 			//Look up units in value string
 			//eg 'AMTH 000 - 2' is 2 units
-			temp = temp.charAt(temp.length-1);
+			temp = parseInt(temp.charAt(temp.length-1));
 			
-			scuUnits+=temp;
+			if(!isNaN(temp)){scuUnits+=temp;}
 		}
 	});
 
-
 //Count Systems Core
-	$("input:checked").each(function() {
-		temp = $(this).val().trim();
+	$(".checkbox.checked").each(function() {
+		temp = $(this).parent().text().trim();
 
 		//Look up units in value string
 		//eg 'AMTH 000 - 2' is 2 units
-		temp = temp.charAt(temp.length-1);
+		temp = parseInt(temp.charAt(temp.length-1));
+		
+		scuUnits+=temp;
+	});
+	$(".radio.checked").each(function() {
+		temp = $(this).parent().text().trim();
+
+		//Look up units in value string
+		//eg 'AMTH 000 - 2' is 2 units
+		temp = parseInt(temp.charAt(temp.length-1));
 		
 		scuUnits+=temp;
 	});
 
-//Count Breadth
-	$("input[name~='breadth']").each(function() {
-		temp = $(this).val().trim();
-
-		if (temp == '') {
-			//No Course Entered
-		} else{
-			//Look up units in value string
-			//eg 'AMTH 000 - 2' is 2 units
-			temp = temp.charAt(temp.length-1);
-			
-			scuUnits+=temp;
-		}
-	});
 
 //Count Electives
-	$("input[name~='elective'][type='number']").each(function() {
+	$("input[name*='elective'][type='number']").each(function() {
 		temp = $(this).val().trim();
 
 		if (temp == 0) {
 			//No Course Entered
 		} else{
 			//Get elective field #
-			temp = $(this).id();
+			temp = $(this).attr('id');
 			temp = temp.charAt(8);
 
 			//Check if adjacent fields are filled
-			if ($('#elective'+temp+'_number') != '') {
-				if ($('#elective'+temp+'_title') != '') {
+			if ($('#elective'+temp+'_number').val().trim() != '') {
+				if ($('#elective'+temp+'_title').val().trim() != '') {
 					temp = $(this).val().trim();
+					
 					//Look up units in value string
 					//eg 'AMTH 000 - 2' is 2 units
-					temp = temp.charAt(temp.length-1);
+					temp = parseInt(temp.charAt(temp.length-1));
 					
 					scuUnits+=temp;
 				};
@@ -92,25 +87,25 @@ function addUnits () {
 	});
 
 //Count transfer
-	$("input[name~='transfer'][type='number']").each(function() {
+	$("input[name*='transfer'][type='number']").each(function() {
 		temp = $(this).val().trim();
 
 		if (temp == 0) {
 			//No Course Entered
 		} else{
 			//Get transfer field #
-			temp = $(this).id();
+			temp = $(this).attr('id');
 			temp = temp.charAt(8);
 
 			//Check if adjacent fields are filled
-			if ($('#transfer'+temp+'_number') != '') {
-				if ($('#transfer'+temp+'_title') != '') {
-					if ($('#transfer'+temp+'_grade') != '') {
-						if ($('#transfer'+temp+'_year') != '') {
+			if ($('#transfer'+temp+'_number').val().trim() != '') {
+				if ($('#transfer'+temp+'_title').val().trim() != '') {
+					if ($('#transfer'+temp+'_grade').val().trim() != '') {
+						if ($('#transfer'+temp+'_year').val().trim() != '') {
 							temp = $(this).val().trim();
 							//Look up units in value string
 							//eg 'AMTH 000 - 2' is 2 units
-							temp = temp.charAt(temp.length-1);
+							temp = parseInt(temp.charAt(temp.length-1));
 							
 							transferUnits+=temp;
 						};

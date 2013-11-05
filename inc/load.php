@@ -10,12 +10,26 @@
 // The infomation is the saved into a PHP $_SESSION array for later use.
 
 // Checks to see if the filename is set if not then the code is not run
-if($_POST['upload'])
-    exit;
-if($filecontents = unserialize($_POST['upload'])){
-    echo var_dump($filecontents);
-    $_SESSION['form'] = $filecontents;
+
+$load = FALSE;
+if (isset($_FILES["upload"])) {
+	if ($_FILES["upload"]["error"] > 0)
+	  {
+	  echo "Error: " . $_FILES["upload"]["error"] . "<br>";
+	  }
+	else
+	  {
+
+	  if ($_FILES["upload"]["type"] != 'text/plain') {
+	  	echo "Bad File Type";
+	  	exit;
+	  }
+
+	  $filecontents = file_get_contents($_FILES["upload"]["tmp_name"]);
+	  $file_data = unserialize($filecontents);
+	  $load = TRUE;
+	  }
 }
-else
-    echo "Error.";
+
+
 ?>

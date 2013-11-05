@@ -55,7 +55,7 @@
 			<h4>Continue From a File</h4>
 			<form enctype="multipart/form-data" action="form.php" method="post">
 				<label>Upload File</label>
-				<input type="file" class="upload" id="upload" >
+				<input type="file" class="upload" name="upload" id="upload" >
 				<a href="#" class="button upload small secondary">Browse...</a>
         <span id="filename">No file selected</span><br/>
 				<input class="button" type="submit" value="Go">
