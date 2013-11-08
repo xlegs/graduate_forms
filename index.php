@@ -39,16 +39,16 @@
 	<div class="row">
 		<div class="large-5 columns panel">
 			<h4>Start From Scratch</h4>
-      <form class="custom">
+      <form class="custom" action="form.php" method="post">
 
 				<label for="area">Area of Study</label>
 				<select name="area" id="area">
 				    <option SELECTED>Select an area</option>
-				    <option value="Systems">Systems</option>
-				    <option value="Communications and Microwave">Communications and Microwave</option>
-				    <option value="Electronics">Electronics</option>
+				    <option value="systems">Systems</option>
+				    <option value="communications_and_microwave">Communications and Microwave</option>
+				    <option value="electronics">Electronics</option>
 				  </select>
-				  <a href="form.php" class="button">Go</a>
+          <input class="button" type="submit" value="Go">
 			</form>
 		</div>
 		<div class="large-5 columns panel">

@@ -18,15 +18,26 @@
 </head>
 <body>	
 <?php include 'inc/save.php'; ?>
+<?php
+			if ($_POST['area']!='') {
+			  	$area=$_POST['area']; 
+			  } else {
+			  	$area=$file_data['area']; 
+			  }
+
+			 $name = preg_replace('/_/', ' ', $area);
+			 $name = ucwords($name);
+?>
+
 	<div class="row">
 		<div class="small-8 columns">
 			<h2>Program of Studies</h2>
 			<h3>Electrical Engineering &middot; Master's Degree</h3>
-			<h4>Area: Systems</h4>
+			<h4>Area: <?php  echo $name;?></h4>
 		</div>
 		<div class="small-4 columns">
-			<a href="javascript:window.print()" class="button">Print</a>
-			<a href="download.php" target="_blank" class="button">Save</a>
+			<a href="javascript:window.print()" class="button hide-on-print">Print</a>
+			<a href="download.php" target="_blank" class="button hide-on-print">Save</a>
 		</div>
 	</div>
 
@@ -86,40 +97,15 @@
 			    <legend>Applied Mathematics (4 units required)</legend>
 				<div class="row">
 					<div class="small-4 columns">
-					    <p><?php echo $_POST['amth1'];?></p>
+					    <p><?php echo $_POST['amth1_number']." - ".$_POST['amth1_title']." - ".$_POST['amth1_units'];?></p>
 					</div>
 					<div class="small-4 columns">
-					    <p><?php echo $_POST['amth2'];?></p>
+					    <p><?php echo $_POST['amth2_number']." - ".$_POST['amth2_title']." - ".$_POST['amth2_units'];?></p>
 					</div>
 			    </div>
 			  </fieldset>
-			  <fieldset>
-			    <legend>Electrical Engineering Core Focus Area: Systems</legend>
-				<div class="row">
-					<?php
-					foreach($_POST['focus1'] as $val)
-		            {
-		                echo '<div class="small-4 columns">';
-		                echo '<p>'.$val.'</p>';
-		                echo '</div>';
-		            }
-	            	?>
-					<div class="small-4 columns">
-					    <p><?php echo $_POST['focus3'];?></p>
-					</div>
-			    </div>    
-			  </fieldset>
-			  <fieldset>
-			    <legend>Core Breadth: Electronics and Communication &amp; Microwave (2 units required per area)</legend>
-			    <div class="row">
-					<div class="small-4 columns">
-					    <p><?php echo $_POST['breadth1'];?></p>
-					</div>
-					<div class="small-4 columns">
-					    <p><?php echo $_POST['breadth2'];?></p>
-					</div>
-				</div>
-			  </fieldset>
+			  <?php include 'inc/'.$area.'_print.php'; ?>
+
 			  <fieldset>
 			    <legend>Additional Elective Courses</legend>
 			    <div class="row">

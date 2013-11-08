@@ -11,6 +11,7 @@
 
   
   <link rel="stylesheet" href="css/foundation.css">
+  <link rel="stylesheet" href="css/form.css">
   
 
   <script src="js/vendor/custom.modernizr.js"></script>
@@ -19,12 +20,22 @@
 <body>
 <?php include 'inc/uploadxml.php';?>
 <?php include 'inc/load.php';?>
+<?php
+			if ($_POST['area']!='') {
+			  	$area=$_POST['area']; 
+			  } else {
+			  	$area=$file_data['area']; 
+			  }
+
+			 $name = preg_replace('/_/', ' ', $area);
+			 $name = ucwords($name);
+?>
 
 	<div class="row">
 		<div class="small-12 columns">
 			<h2>Program of Studies</h2>
 			<h3>Electrical Engineering &middot; Master's Degree</h3>
-			<h4>Area: Systems</h4>
+			<h4>Area: <?php  echo $name;?></h4>
 			<hr />
 		</div>
 	</div>
@@ -32,6 +43,7 @@
 	<div class="row">
 		<div class="small-12 columns">
 			<form class="custom" action="print.php" method="post">
+				<input name="area" type="hidden">
 			  <fieldset>
 			    <legend>Personal Information</legend>
 				<div class="row">
@@ -89,19 +101,69 @@
 			  <fieldset>
 			    <legend>Graduate Core Requirements (minimum of 6 units)</legend>
 				<div class="row">
-					<div class="small-4 columns">
+					<div class="small-12 columns">
 					    <label>Emerging Topics in Engineering</label>
-					    <input name="core1" id="core1" type="text" placeholder="ELEN 000" value="<?php echo $file_data['core1']?>">
+						<div class="row"><hr/>
+							<div class="small-3 columns">
+							    <label>Course Number</label>
+							    <input name="core1_number" id="core1_number" type="text" placeholder="ELEN 000" value="<?php echo $file_data['core1_number']?>">
+							</div>
+							<div class="small-7 columns">
+							    <label>Course Title</label>
+							    <input name="core1_title" id="core1_title" type="text" placeholder="Course Title" value="<?php echo $file_data['core1_title']?>">
+							</div>
+							<div class="small-2 columns">
+							    <label>Number of Units</label>
+							    <input name="core1_units" id="core1_units" type="number"  min="0" max="5" value="<?php echo $file_data['core1_units']?>">
+							</div>
+						</div>
+
+				   
 					</div>
-					<div class="small-4 columns">
+					</div>
+				<div class="row">
+					<div class="small-12 columns">
 					    <label>Engineering and Business/Entrepreneurship</label>
-					    <input name="core2" id="core2" type="text" placeholder="ELEN 000" value="<?php echo $file_data['core2']?>">
+						<div class="row"><hr/>
+							<div class="small-3 columns">
+							    <label>Course Number</label>
+							    <input name="core2_number" id="core2_number" type="text" placeholder="ELEN 000" value="<?php echo $file_data['core2_number']?>">
+							</div>
+							<div class="small-7 columns">
+							    <label>Course Title</label>
+							    <input name="core2_title" id="core2_title" type="text" placeholder="Course Title" value="<?php echo $file_data['core2_title']?>">
+							</div>
+							<div class="small-2 columns">
+							    <label>Number of Units</label>
+							    <input name="core2_units" id="core2_units" type="number"  min="0" max="5" value="<?php echo $file_data['core2_units']?>">
+							</div>
+						</div>
+
+				   
 					</div>
-					<div class="small-4 columns">
+					</div>
+				<div class="row">
+					<div class="small-12 columns">
 					    <label>Engineering and Society</label>
-					    <input name="core3" id="core3" type="text" placeholder="ELEN 000" value="<?php echo $file_data['core3']?>">
+						<div class="row"><hr/>
+							<div class="small-3 columns">
+							    <label>Course Number</label>
+							    <input name="core3_number" id="core3_number" type="text" placeholder="ELEN 000" value="<?php echo $file_data['core3_number']?>">
+							</div>
+							<div class="small-7 columns">
+							    <label>Course Title</label>
+							    <input name="core3_title" id="core3_title" type="text" placeholder="Course Title" value="<?php echo $file_data['core3_title']?>">
+							</div>
+							<div class="small-2 columns">
+							    <label>Number of Units</label>
+							    <input name="core3_units" id="core3_units" type="number"  min="0" max="5" value="<?php echo $file_data['core3_units']?>">
+							</div>
+						</div>
+
+				   
 					</div>
-			    </div>
+					</div>
+
 				<div class="row">
 					<div class="small-12 columns">
 						<p>For more information about the Graduate Core and the courses that satisfy each requirement, please visit the <a href="http://www.scu.edu/engineering/graduate/information/core.cfm" target="_blank">Graduate Core website</a>.</p>
@@ -113,24 +175,36 @@
 			    <legend>Applied Mathematics (4 units required)</legend>
 				<div class="row">
 					<div class="small-6 columns">
-					    <label for="amth1">Course Number One</label>
-					    <select id="amth1" name="amth1">
-						    <option value="">Select a course</option>
-						    <option value="ENGR 000 - 2">This is another option</option>
-						    <option value="ENGR 000 - 2">This is another option too</option>
-						    <option value="ENGR 000 - 2">Look, a third option</option>
-						  </select>
-						<p>When a student selects a course from the above drop-down menu, that course's information will appear here.</p>
+					    <label>Course Number One</label>
+						 <div class="row"><hr/>
+						 	<div class="small-6 columns">
+						 		<label>Course Number</label>
+						 		<input name="amth1_number" id="amth1_number" placeholder="ELEN 000" type="text" value="<?php echo $file_data['amth1_number']?>">
+						 	</div>
+						 	<div class="small-6 columns">
+						 		<label>Course Units</label>
+							    <input name="amth1_units" id="amth1_units" type="number"  min="0" max="5" value="<?php echo $file_data['amth1_units']?>">
+						 	</div>
+						 </div>
+					    <label>Course Title</label>
+					    <input name="amth1_title" id="amth1_title" placeholder="Course Title" type="text" value="<?php echo $file_data['amth1_title']?>">
+
 					</div>
 					<div class="small-6 columns">
-					    <label for="amth2">Course Number Two</label>
-					    <select id="amth2" name="amth2">
-						    <option value="">Select a course</option>
-						    <option value="ENGR 000 - 2">This is another option</option>
-						    <option value="ENGR 000 - 2">This is another option too</option>
-						    <option value="ENGR 000 - 2">Look, a third option</option>
-						  </select>
-						<p>When a student selects a course from the above drop-down menu, that course's information will appear here.</p>
+					    <label>Course Number Two</label>
+						 <div class="row"><hr/>
+						 	<div class="small-6 columns">
+						 		<label>Course Number</label>
+						 		<input name="amth2_number" id="amth2_number" placeholder="ELEN 000" type="text" value="<?php echo $file_data['amth2_number']?>">
+						 	</div>
+						 	<div class="small-6 columns">
+						 		<label>Course Units</label>
+							    <input name="amth2_units" id="amth2_units" type="number"  min="0" max="5" value="<?php echo $file_data['amth2_units']?>">
+						 	</div>
+						 </div>
+					    <label>Course Title</label>
+					    <input name="amth2_title" id="amth2_title" placeholder="Course Title" type="text" value="<?php echo $file_data['amth2_title']?>">
+
 					</div>
 			    </div>
 			    <div class="row">
@@ -140,96 +214,8 @@
 					</div>
 			    </div>
 			  </fieldset>
-			  <fieldset>
-			    <legend>Electrical Engineering Core Focus Area: Systems</legend>
-			    <div class="row">
-					<div class="small-6 columns">
-						<p>Check any two of the following courses:</p>
-					<?php
-						$temp = $_SESSION['xmlDataBase']['systems']['pairnumbers'][1];
-						$i=0;
-						foreach ($temp as $key => $value) {
-							$i++;
-							$str=$key.' - '.$value['units'];
-							echo "<label>";
-							echo "<input ";
-							foreach ($file_data['focus1'] as $val) {
-								if ($val == $str) echo "CHECKED";
-							}
-							echo ' name="focus1[]" id="focus1-'.$i.'" type="checkbox" value="'.$key.' - '.$value['units'].'"> '.$key.' - '.$value['name'].' - '.$value["units"];
-							echo "</label>";
-						}
-					?>
-					</div>
+			  <?php include 'inc/'.$area.'.php'; ?>
 
-			    
-					<div class="small-6 columns">
-						<p>Choose one from the following courses:</p>
-					<?php
-						$temp = $_SESSION['xmlDataBase']['systems']['pairnumbers'][2];
-						$i=0;
-						foreach ($temp as $key => $value) {
-							$i++;
-							$str=$key.' - '.$value['units'];
-							echo "<label>";
-							echo "<input ";
-							if ($file_data['focus3'] == $str) echo "CHECKED";
-							echo ' name="focus3" id="focus3-'.$i.'" type="radio" value="'.$key.' - '.$value['units'].'"> '.$key.' - '.$value['name'].' - '.$value['units'];
-							echo "</label>";
-						}
-					?>
-
-					</div>
-			    </div>
-			  </fieldset>
-			  <fieldset>
-			    <legend>Core Breadth: Electronics and Communication &amp; Microwave (2 units required per area)</legend>
-			    <div class="row">
-					<div class="small-6 columns">
-						 <label for="breadth1">Electronics and Communication</label>
-						<select id="breadth1" name="breadth1">
-						    <option value="">Select a course</option>
-							<?php
-								$temp = $_SESSION['xmlDataBase']['electronics']['courses'];
-								$i=0;
-								foreach ($temp as $key => $value) {
-									$i++;
-									$str=$key.' - '.$value['units'];
-									echo "<option ";
-									if ($file_data['breadth1'] == $str) echo "SELECTED";
-									echo ' value="'.$key.' - '.$value['units'].'"> '.$key.' - '.$value['name'].' - '.$value['units'].'</option>';
-								}
-							?>
-
-						  </select>
-						<p>When a student selects a course from the above drop-down menu, that course's information will appear here.</p>
-					</div>
-					<div class="small-6 columns">
-						 <label for="breadth2">Microwave</label>
-						<select id="breadth2" name="breadth2">
-						    <option value="">Select a course</option>
-							<?php
-								$temp = $_SESSION['xmlDataBase']['communication_and_microwave']['courses'];
-								$i=0;
-								foreach ($temp as $key => $value) {
-									$i++;
-									$str=$key.' - '.$value['units'];
-									echo "<option ";
-									if ($file_data['breadth2'] == $str) echo "SELECTED";
-									echo ' value="'.$key.' - '.$value['units'].'"> '.$key.' - '.$value['name'].' - '.$value['units'].'</option>';
-								}
-							?>
-						  </select>
-						<p>When a student selects a course from the above drop-down menu, that course's information will appear here.</p>
-
-					</div>
-				</div>
-				 <div class="row">
-					<div class="small-12 columns">
-						<p>A list of all Electrical Engineering courses and their syllabi can be found <a href="http://syllabi.engr.scu.edu/list.cgi?dept=ELEN" target="_blank">here</a>. Note that only courses with a number of 200 or above are open to graduate students.</p>
-					</div>
-			    </div>
-			  </fieldset>
 			  <fieldset>
 			    <legend>Additional Elective Courses</legend>
 			    <div class="row">
@@ -596,6 +582,7 @@
     $(document).foundation();
   </script>
   <script type="text/javascript" src="js/form_functions.js"></script>
+			  <?php include 'inc/'.$area.'_js.php'; ?>
   <script type="text/javascript">
 
   $('.count').click(function() {
