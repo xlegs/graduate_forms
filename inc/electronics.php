@@ -14,7 +14,7 @@
 							foreach ($file_data['focus1'] as $val) {
 								if ($val == $str) echo "CHECKED";
 							}
-							echo ' name="focus1[]" id="focus1-'.$i.'" type="radio" value="'.$key.' - '.$value['units'].'"> '.$key.'<br/>'.$value['name'].' - '.$value["units"];
+							echo ' name="focus1" id="focus1-'.$i.'" type="radio" value="'.$key.' - '.$value['units'].'"> '.$key.'<br/>'.$value['name'].' - '.$value["units"];
 							echo "</label>";
 						}
 					?>
@@ -55,7 +55,7 @@
 							foreach ($file_data['focus2'] as $val) {
 								if ($val == $str) echo "CHECKED";
 							}
-							echo ' name="focus2[]" id="focus2-'.$i.'" type="radio" value="'.$key.' - '.$value['units'].'"> '.$key.'<br/>'.$value['name'].' - '.$value["units"];
+							echo ' name="focus2" id="focus2-'.$i.'" type="radio" value="'.$key.' - '.$value['units'].'"> '.$key.'<br/>'.$value['name'].' - '.$value["units"];
 							echo "</label>";
 						}
 					?>

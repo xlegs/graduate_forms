@@ -20,7 +20,7 @@
 
 			    
 					<div class="small-6 columns">
-					<p>The following courses are required:</p>
+					<p>Substitutions, if necessary:</p>
 
 					<label> <input name="focus1-1_other" id="focus1-1_other" type="checkbox" value="Other" <?php if($file_data['focus1-1_other']=="Other") echo "CHECKED"?>>Substitute 1...</label>
 

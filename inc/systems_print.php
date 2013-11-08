@@ -26,9 +26,7 @@
 	            	?>
 					<div class="small-4 columns">
 					    <p><?php if ($_POST['focus3_other']=="Other") {
-						    	echo '<div class="small-4 columns">';
-				                echo '<p>'.$_POST['focus3_other_number']." - ".$_POST['focus3_other_title']." - ".$_POST['focus3_other_units'].'</p>';
-				                echo '</div>';
+				                echo $_POST['focus3_other_number']." - ".$_POST['focus3_other_title']." - ".$_POST['focus3_other_units'];
 					    } else {
 					    	echo $_POST['focus3'];
 					    }?></p>

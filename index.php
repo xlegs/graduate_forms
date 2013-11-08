@@ -13,12 +13,10 @@
 
   
   <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="css/form.css">
+
   <style type="text/css">
-  	input#upload {
-    display: none;
-    visibility: hidden;
-    width: 0;
-    height: 0;
+
 }
   </style>
   
@@ -39,7 +37,7 @@
 	<div class="row">
 		<div class="large-5 columns panel">
 			<h4>Start From Scratch</h4>
-      <form class="custom" action="form.php" method="post">
+      <form action="form.php" method="post">
 
 				<label for="area">Area of Study</label>
 				<select name="area" id="area">

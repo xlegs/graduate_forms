@@ -42,8 +42,8 @@
 
 	<div class="row">
 		<div class="small-12 columns">
-			<form class="custom" action="print.php" method="post">
-				<input name="area" type="hidden">
+			<form action="print.php" method="post">
+				<input name="area" type="hidden" value="<?php  echo $area;?>">
 			  <fieldset>
 			    <legend>Personal Information</legend>
 				<div class="row">

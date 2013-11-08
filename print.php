@@ -21,8 +21,6 @@
 <?php
 			if ($_POST['area']!='') {
 			  	$area=$_POST['area']; 
-			  } else {
-			  	$area=$file_data['area']; 
 			  }
 
 			 $name = preg_replace('/_/', ' ', $area);
