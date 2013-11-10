@@ -1,7 +1,7 @@
-		  <fieldset>
-			    <legend>Electrical Engineering Core Focus Area: Electronics</legend>
+<fieldset>
+			    <legend>Electrical Engineering Core Focus Area: Communication &amp; Microwave</legend>
 			    <div class="row">
-					<div class="small-4 columns">
+			    	<div class="small-4 columns">
 					    <p><?php if ($_POST['focus1_other']=="Other") {				    	
 				                echo $_POST['focus1_other_number']." - ".$_POST['focus1_other_title']." - ".$_POST['focus1_other_units'];
 					    } else {
@@ -25,12 +25,10 @@
 					    }?></p>
 
 					</div>
-
-
 			    </div>
 			  </fieldset>
 			  <fieldset>
-			    <legend>Core Breadth: Systems and Communication &amp; Microwave (2 units required per area)</legend>
+			    <legend>Core Breadth: Electronics and Systems (2 units required per area)</legend>
 			    <div class="row">
 					<div class="small-6 columns">
 					    <p><?php if ($_POST['breadth1']=="Other") {
@@ -47,4 +45,5 @@
 					    }?></p>
 					</div>
 				</div>
+
 			  </fieldset>

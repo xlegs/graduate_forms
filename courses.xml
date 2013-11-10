@@ -1,7 +1,9 @@
 <xml>
 	<systems>
 		<advisors>
-			<prof></prof>
+			<prof>Dr. Aleksandar Zecevic</prof>
+			<prof>Dr. Sally Wood</prof>
+			<prof>Dr. Tokunbo Ogunfunmi</prof>
 		</advisors>
 		<courses>
 			<course pairnumber="1">
@@ -288,7 +290,8 @@
 
 	<communication_and_microwave>
 		<advisors>
-			<prof></prof>
+			<prof>Dr. Sarah Kate Wilson</prof>
+			<prof>Dr. Tim Healy</prof>
 		</advisors>
 		<courses>
 			<course pairnumber="1">
@@ -463,7 +466,10 @@ no course description		<name>Analog Integrated Circuits</name>
 
 	<electronics>
 		<advisors>
-			<prof></prof>
+			<prof>Dr. Shoba Krishnan</prof>
+			<prof>Dr. Cary Yang</prof>
+			<prof>Dr. Samiha Mourad</prof>
+			<prof>Dr. Mahmudur Rahman</prof>
 		</advisors>
 		<courses>
 			<course pairnumber="1">

@@ -91,9 +91,17 @@
 					    <label for="advisor">Faculty Advisor</label>
 						<select name="advisor" id="advisor">
 						    <option>Select an advisor</option>
-						    <option>This is another option</option>
-						    <option>This is another option too</option>
-						    <option>Look, a third option</option>
+							<?php
+								$temp = $_SESSION['xmlDataBase'][$area]['advisors']['advisors'];
+								$i=0;
+								foreach ($temp as $value) {
+									$i++;
+									$str=$value;
+									echo "<option ";
+									if ($file_data['advisor'] == $str) echo "SELECTED";
+									echo ' value="'.$value.'">'.$value.'</option>';
+								}
+							?>
 						  </select>
 					</div>
 			    </div>

@@ -43,7 +43,7 @@
 				<select name="area" id="area">
 				    <option SELECTED>Select an area</option>
 				    <option value="systems">Systems</option>
-				    <option value="communications_and_microwave">Communications and Microwave</option>
+				    <option value="communication_and_microwave">Communication and Microwave</option>
 				    <option value="electronics">Electronics</option>
 				  </select>
           <input class="button" type="submit" value="Go">

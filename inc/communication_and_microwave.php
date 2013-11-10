@@ -12,7 +12,7 @@
 							// $str=$key.' - '.$value['name'].' - '.$value['units'];
 							echo "<label>";
 							echo "<input ";
-							echo ' name="focus1[]" id="focus1-'.$i.'" type="hidden" value="'.$key.' - '.$value['units'].'"> '.$key.' - '.$value['name'].' - '.$value["units"];
+							echo ' name="focus'.$i.'" id="focus'.$i.'" type="hidden" value="'.$key.' - '.$value['units'].'"> '.$key.' - '.$value['name'].' - '.$value["units"];
 							echo "</label>";
 						}
 					?>

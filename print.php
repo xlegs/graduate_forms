@@ -45,35 +45,29 @@
 				<fieldset>
 				<legend>Personal Information</legend>
 				<div class="row">
-					<div class="small-2 columns">
-					    <p><?php echo $_POST['firstName'];?></p>
+					<div class="small-4 columns">
+					    <p><?php echo $_POST['firstName'].' '.$_POST['middleName'].' '.$_POST['lastName'];?></p>
 					</div>
-					<div class="small-2 columns">
-					    <p><?php echo $_POST['middleName'];?></p>
+
+					<div class="small-4 columns">
+					    <p><?php echo 'SCU #: W'.$_POST['SCUid'];?></p>
 					</div>
-					<div class="small-2 columns">
-					    <p><?php echo $_POST['lastName'];?></p>
+					<div class="small-4 columns">
+					    <p><?php echo $_POST['email'];?></p>
 					</div>
-					<div class="small-6 columns">
-					    <p><?php echo $_POST['SCUid'];?></p>
-					</div>
+
 					
 			    </div>
 			    <div class="row">
 
 					<div class="small-4 columns">
-					    <p><?php echo $_POST['homePhone'];?></p>
+					    <p><?php if ($_POST['homePhone']!='') echo 'Home: '.$_POST['homePhone'];?></p>
 					</div>
 					<div class="small-4 columns">
-					    <p><?php echo $_POST['workPhone'];?></p>
+					    <p><?php if ($_POST['workPhone']!='') echo 'Work: '.$_POST['workPhone'];?></p>
 					</div>
 					<div class="small-4 columns">
-					    <p><?php echo $_POST['email'];?></p>
-					</div>
-			    </div>
-			    <div class="row">
-					<div class="small-4 columns">
-						<p>Advisor: Dr. Sally Wood</p>
+						<p>Advisor: <?php echo $_POST['advisor'];?></p>
 					</div>
 			    </div>
 			  </fieldset>

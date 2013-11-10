@@ -1,5 +1,6 @@
 @media all {
 	#page-break	{ display: none; }
+	div#print-footer {display: none !important; }
 }
 
 @media print {
@@ -17,4 +18,5 @@
   	h3,h4{display: inline;}
   	columns *{position: relative;}
   	fieldset {page-break-inside: avoid}
+  	div#print-footer {display: block !important; position: fixed; bottom: 0;}
 }
