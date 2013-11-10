@@ -92,7 +92,7 @@
 						<select name="advisor" id="advisor">
 						    <option>Select an advisor</option>
 							<?php
-								$temp = $_SESSION['xmlDataBase'][$area]['advisors']['advisors'];
+								$temp = $_SESSION['xmlDataBase'][$area]['advisors'];
 								$i=0;
 								foreach ($temp as $value) {
 									$i++;
