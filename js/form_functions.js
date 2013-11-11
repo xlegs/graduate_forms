@@ -123,3 +123,41 @@ function addUnits () {
  	$('.totalSCUUnits').text(scuUnits).val(scuUnits);
  	$('.totalUnits').text(scuUnits+transferUnits).val(scuUnits+transferUnits);
 }
+
+// function populate (id) {
+// 	// 
+// 	var fieldId = id.substring(id.indexOf('_'));
+
+// 	$(fieldId+)
+// }
+
+function newElective() {
+	var i = $(this).attr("id");
+
+
+	if (i !== 'undefined') {
+
+		i = i.trim();
+		i = parseInt(i.charAt(8));
+
+		for (var j = i+1; j >= 0; j--) {
+			$('div.elective'+j).removeClass('disabled');
+		};
+
+	}
+}
+function newTransfer() {
+	var i = $(this).attr("id");
+
+
+	if (i !== 'undefined') {
+
+		i = i.trim();
+		i = parseInt(i.charAt(8));
+
+		for (var j = i+1; j >= 0; j--) {
+			$('div.transfer'+j).removeClass('disabled');
+		};
+
+	}
+}

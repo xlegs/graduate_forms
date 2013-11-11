@@ -232,96 +232,31 @@
 					</div>
 			    </div>
 
-				<div class="row">
+<?php
+
+for ($i=1; $i < $electiveMax+1; $i++) {
+	$active ='disabled';
+	if ($file_data['elective'.$i.'_number']!='' || $i < 4) $active='';
+	echo '
+				<div class="row elective'.$i.' '.$active.'">
 					<div class="small-3 columns">
 					    <label>Course Number</label>
-					    <input name="elective1_number" id="elective1_number" type="text" placeholder="ELEN 000" value="<?php echo $file_data['elective1_number']?>">
+					    <input name="elective'.$i.'_number" id="elective'.$i.'_number" type="text" placeholder="ELEN 000" value="'.$file_data['elective'.$i.'_number'].'">
 					</div>
 					<div class="small-7 columns">
 					    <label>Course Title</label>
-					    <input name="elective1_title" id="elective1_title" type="text" placeholder="Course Title" value="<?php echo $file_data['elective1_title']?>">
+					    <input name="elective'.$i.'_title" id="elective'.$i.'_title" type="text" placeholder="Course Title" value="'.$file_data['elective'.$i.'_title'].'">
 					</div>
 					<div class="small-2 columns">
 					    <label>Number of Units</label>
-					    <input name="elective1_units" id="elective1_units" type="number"  min="0" max="5" value="<?php echo $file_data['elective1_units']?>">
+					    <input name="elective'.$i.'_units" id="elective'.$i.'_units" type="number"  min="0" max="5" value="'.$file_data['elective'.$i.'_units'].'">
 					</div>
 					
 			    </div>
-			    <div class="row">
-					<div class="small-3 columns">
-					    <label>Course Number</label>
-					    <input name="elective2_number" id="elective2_number" type="text" placeholder="ELEN 000" value="<?php echo $file_data['elective2_number']?>">
-					</div>
-					<div class="small-7 columns">
-					    <label>Course Title</label>
-					    <input name="elective2_title" id="elective2_title" type="text" placeholder="Course Title" value="<?php echo $file_data['elective2_title']?>">
-					</div>
-					<div class="small-2 columns">
-					    <label>Number of Units</label>
-					    <input name="elective2_units" id="elective2_units" type="number"  min="0" max="5" value="<?php echo $file_data['elective2_units']?>">
-					</div>
-					
-			    </div>
-			    <div class="row">
-					<div class="small-3 columns">
-					    <label>Course Number</label>
-					    <input name="elective3_number" id="elective3_number" type="text" placeholder="ELEN 000" value="<?php echo $file_data['elective3_number']?>">
-					</div>
-					<div class="small-7 columns">
-					    <label>Course Title</label>
-					    <input name="elective3_title" id="elective3_title" type="text" placeholder="Course Title" value="<?php echo $file_data['elective3_title']?>">
-					</div>
-					<div class="small-2 columns">
-					    <label>Number of Units</label>
-					    <input name="elective3_units" id="elective3_units" type="number"  min="0" max="5" value="<?php echo $file_data['elective3_units']?>">
-					</div>
-					
-			    </div>
-			    <div class="row">
-					<div class="small-3 columns">
-					    <label>Course Number</label>
-					    <input name="elective4_number" id="elective4_number" type="text" placeholder="ELEN 000" value="<?php echo $file_data['elective4_number']?>">
-					</div>
-					<div class="small-7 columns">
-					    <label>Course Title</label>
-					    <input name="elective4_title" id="elective4_title" type="text" placeholder="Course Title" value="<?php echo $file_data['elective4_title']?>">
-					</div>
-					<div class="small-2 columns">
-					    <label>Number of Units</label>
-					    <input name="elective4_units" id="elective4_units" type="number"  min="0" max="5" value="<?php echo $file_data['elective4_units']?>">
-					</div>
-					
-			    </div>
-			    <div class="row">
-					<div class="small-3 columns">
-					    <label>Course Number</label>
-					    <input name="elective5_number" id="elective5_number" type="text" placeholder="ELEN 000" value="<?php echo $file_data['elective5_number']?>">
-					</div>
-					<div class="small-7 columns">
-					    <label>Course Title</label>
-					    <input name="elective5_title" id="elective5_title" type="text" placeholder="Course Title" value="<?php echo $file_data['elective5_title']?>">
-					</div>
-					<div class="small-2 columns">
-					    <label>Number of Units</label>
-					    <input name="elective5_units" id="elective5_units" type="number"  min="0" max="5" value="<?php echo $file_data['elective5_units']?>">
-					</div>
-					
-			    </div>
-			    <div class="row">
-					<div class="small-3 columns">
-					    <label>Course Number</label>
-					    <input name="elective6_number" id="elective6_number" type="text" placeholder="ELEN 000" value="<?php echo $file_data['elective6_number']?>">
-					</div>
-					<div class="small-7 columns">
-					    <label>Course Title</label>
-					    <input name="elective6_title" id="elective6_title" type="text" placeholder="Course Title" value="<?php echo $file_data['elective6_title']?>">
-					</div>
-					<div class="small-2 columns">
-					    <label>Number of Units</label>
-					    <input name="elective6_units" id="elective6_units" type="number"  min="0" max="5" value="<?php echo $file_data['elective6_units']?>">
-					</div>
-					
-			    </div>
+		';
+}
+
+?>			    
 			  </fieldset>
 			  <fieldset>
 			    <legend>Transfer Credit Requested</legend>
@@ -357,148 +292,40 @@
 
 			    </div>
 
-				<div class="row">
-					<div class="small-2 columns">
-					    <label>Course Number</label>
-					    <input name="transfer1_number" id="transfer1_number" type="text" placeholder="ELEN 000" value="<?php echo $file_data['transfer1_number']?>">
-					</div>
-					<div class="small-4 columns">
-					    <label>Course Title</label>
-					    <input name="transfer1_title" id="transfer1_title" type="text" placeholder="Course Title" value="<?php echo $file_data['transfer1_title']?>">
-					</div>
-					<div class="small-2 columns">
-					    <label>Number of Units</label>
-					    <input name="transfer1_units" id="transfer1_units" type="number"  min="0" max="5" value="<?php echo $file_data['transfer1_units']?>">
-					</div>
-					<div class="small-2 columns">
-					    <label>Grade</label>
-					    <input name="transfer1_grade" id="transfer1_grade" type="text" placeholder="Grade" value="<?php echo $file_data['transfer1_grade']?>">
-					</div>
-					<div class="small-2 columns">
-					    <label>Year Completed</label>
-					    <input name="transfer1_year" id="transfer1_year" type="text" placeholder="YYYY" value="<?php echo $file_data['transfer1_year']?>">
-					</div>
+<?php
 
-			    </div>
-				<div class="row">
+for ($i=1; $i < $transferMax+1; $i++) {
+	$active ='disabled';
+	if ($file_data['transfer'.$i.'_number']!='' || $i < 4) $active='';
+	echo '
+				<div class="row transfer'.$i.' '.$active.'">
 					<div class="small-2 columns">
 					    <label>Course Number</label>
-					    <input name="transfer2_number" id="transfer2_number" type="text" placeholder="ELEN 000" value="<?php echo $file_data['transfer2_number']?>">
+					    <input name="transfer'.$i.'_number" id="transfer'.$i.'_number" type="text" placeholder="ELEN 000" value="'.$file_data['transfer'.$i.'_number'].'">
 					</div>
 					<div class="small-4 columns">
 					    <label>Course Title</label>
-					    <input name="transfer2_title" id="transfer2_title" type="text" placeholder="Course Title" value="<?php echo $file_data['transfer2_title']?>">
+					    <input name="transfer'.$i.'_title" id="transfer'.$i.'_title" type="text" placeholder="Course Title" value="'.$file_data['transfer'.$i.'_title'].'">
 					</div>
 					<div class="small-2 columns">
 					    <label>Number of Units</label>
-					    <input name="transfer2_units" id="transfer2_units" type="number"  min="0" max="5" value="<?php echo $file_data['transfer2_units']?>">
+					    <input name="transfer'.$i.'_units" id="transfer'.$i.'_units" type="number"  min="0" max="9" value="'.$file_data['transfer'.$i.'_units'].'">
 					</div>
 					<div class="small-2 columns">
 					    <label>Grade</label>
-					    <input name="transfer2_grade" id="transfer2_grade" type="text" placeholder="Grade" value="<?php echo $file_data['transfer2_grade']?>">
+					    <input name="transfer'.$i.'_grade" id="transfer'.$i.'_grade" type="text" placeholder="Grade" value="'.$file_data['transfer'.$i.'_grade'].'">
 					</div>
 					<div class="small-2 columns">
 					    <label>Year Completed</label>
-					    <input name="transfer2_year" id="transfer2_year" type="text" placeholder="YYYY" value="<?php echo $file_data['transfer2_year']?>">
-					</div>
-
-			    </div>
-				<div class="row">
-					<div class="small-2 columns">
-					    <label>Course Number</label>
-					    <input name="transfer3_number" id="transfer3_number" type="text" placeholder="ELEN 000" value="<?php echo $file_data['transfer3_number']?>">
-					</div>
-					<div class="small-4 columns">
-					    <label>Course Title</label>
-					    <input name="transfer3_title" id="transfer3_title" type="text" placeholder="Course Title" value="<?php echo $file_data['transfer3_title']?>">
-					</div>
-					<div class="small-2 columns">
-					    <label>Number of Units</label>
-					    <input name="transfer3_units" id="transfer3_units" type="number"  min="0" max="5" value="<?php echo $file_data['transfer3_units']?>">
-					</div>
-					<div class="small-2 columns">
-					    <label>Grade</label>
-					    <input name="transfer3_grade" id="transfer3_grade" type="text" placeholder="Grade" value="<?php echo $file_data['transfer3_grade']?>">
-					</div>
-					<div class="small-2 columns">
-					    <label>Year Completed</label>
-					    <input name="transfer3_year" id="transfer3_year" type="text" placeholder="YYYY" value="<?php echo $file_data['transfer3_year']?>">
+					    <input name="transfer'.$i.'_year" id="transfer'.$i.'_year" type="text" placeholder="YYYY" value="'.$file_data['transfer'.$i.'_year'].'">
 					</div>
 
 			    </div>
 
-				<div class="row">
-					<div class="small-2 columns">
-					    <label>Course Number</label>
-					    <input name="transfer4_number" id="transfer4_number" type="text" placeholder="ELEN 000" value="<?php echo $file_data['transfer4_number']?>">
-					</div>
-					<div class="small-4 columns">
-					    <label>Course Title</label>
-					    <input name="transfer4_title" id="transfer4_title" type="text" placeholder="Course Title" value="<?php echo $file_data['transfer4_title']?>">
-					</div>
-					<div class="small-2 columns">
-					    <label>Number of Units</label>
-					    <input name="transfer4_units" id="transfer4_units" type="number"  min="0" max="5" value="<?php echo $file_data['transfer4_units']?>">
-					</div>
-					<div class="small-2 columns">
-					    <label>Grade</label>
-					    <input name="transfer4_grade" id="transfer4_grade" type="text" placeholder="Grade" value="<?php echo $file_data['transfer4_grade']?>">
-					</div>
-					<div class="small-2 columns">
-					    <label>Year Completed</label>
-					    <input name="transfer4_year" id="transfer4_year" type="text" placeholder="YYYY" value="<?php echo $file_data['transfer4_year']?>">
-					</div>
+		';
+}
 
-			    </div>
-
-				<div class="row">
-					<div class="small-2 columns">
-					    <label>Course Number</label>
-					    <input name="transfer5_number" id="transfer5_number" type="text" placeholder="ELEN 000" value="<?php echo $file_data['transfer5_number']?>">
-					</div>
-					<div class="small-4 columns">
-					    <label>Course Title</label>
-					    <input name="transfer5_title" id="transfer5_title" type="text" placeholder="Course Title" value="<?php echo $file_data['transfer5_title']?>">
-					</div>
-					<div class="small-2 columns">
-					    <label>Number of Units</label>
-					    <input name="transfer5_units" id="transfer5_units" type="number"  min="0" max="5" value="<?php echo $file_data['transfer5_units']?>">
-					</div>
-					<div class="small-2 columns">
-					    <label>Grade</label>
-					    <input name="transfer5_grade" id="transfer5_grade" type="text" placeholder="Grade" value="<?php echo $file_data['transfer5_grade']?>">
-					</div>
-					<div class="small-2 columns">
-					    <label>Year Completed</label>
-					    <input name="transfer5_year" id="transfer5_year" type="text" placeholder="YYYY" value="<?php echo $file_data['transfer5_year']?>">
-					</div>
-
-			    </div>
-
-
-				<div class="row">
-					<div class="small-2 columns">
-					    <label>Course Number</label>
-					    <input name="transfer6_number" id="transfer6_number" type="text" placeholder="ELEN 000" value="<?php echo $file_data['transfer6_number']?>">
-					</div>
-					<div class="small-4 columns">
-					    <label>Course Title</label>
-					    <input name="transfer6_title" id="transfer6_title" type="text" placeholder="Course Title" value="<?php echo $file_data['transfer6_title']?>">
-					</div>
-					<div class="small-2 columns">
-					    <label>Number of Units</label>
-					    <input name="transfer6_units" id="transfer6_units" type="number"  min="0" max="5" value="<?php echo $file_data['transfer6_units']?>">
-					</div>
-					<div class="small-2 columns">
-					    <label>Grade</label>
-					    <input name="transfer6_grade" id="transfer6_grade" type="text" placeholder="Grade" value="<?php echo $file_data['transfer6_grade']?>">
-					</div>
-					<div class="small-2 columns">
-					    <label>Year Completed</label>
-					    <input name="transfer6_year" id="transfer6_year" type="text" placeholder="YYYY" value="<?php echo $file_data['transfer6_year']?>">
-					</div>
-
-			    </div>
+?>			    
 
 				
 			    <hr/>
@@ -596,6 +423,12 @@
   $('.count').click(function() {
   addUnits();
 });
+  </script>
+  <script type="text/javascript">
+  $(function(){ 
+  	$('div[class*="elective"] input').change(newElective);
+  	$('div[class*="transfer"] input').change(newTransfer);
+  });
   </script>
 
 

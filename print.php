@@ -36,6 +36,8 @@
 		<div class="small-4 columns">
 			<a href="javascript:window.print()" class="button hide-on-print">Print</a>
 			<a href="download.php" target="_blank" class="button hide-on-print">Save</a>
+			<p class="print-only">Student Initial Here:</p>
+			<p class="print-only">Advisor Initial Here:</p>
 		</div>
 	</div>
 
@@ -109,7 +111,7 @@
 				<div class="row">
 					<?php 
 						# Output only when filled
-						for ($i=1; $i < 7; $i++) { 
+						for ($i=1; $i < $electiveMax+1; $i++) { 
 							if ($_POST['elective'.$i.'_number']!='' && $_POST['elective'.$i.'_title']!='' && $_POST['elective'.$i.'_units']!='' && $_POST['elective'.$i.'_units']!=0) {
 					    		if ($i % 2 == 1) {echo '<div class="small-6 columns">';}
 					    		echo "<p>";
@@ -144,7 +146,7 @@
 				<div class="row">
 					<?php 
 						# Output only when filled
-						for ($i=1; $i < 7; $i++) { 
+						for ($i=1; $i < $transferMax+1; $i++) { 
 							if ($_POST['transfer'.$i.'_number']!='' && $_POST['transfer'.$i.'_title']!='' && $_POST['transfer'.$i.'_units']!='' && $_POST['transfer'.$i.'_units']!=0 && $_POST['transfer'.$i.'_grade']!='' && $_POST['transfer'.$i.'_year']!='') {
 					    		if ($i % 2 == 1) {echo '<div class="small-6 columns">';}
 					    		echo "<p>";
