@@ -105,9 +105,12 @@
   <script src="js/foundation/foundation.abide.js"></script>
   
   -->
-  <script type="text/javascript">$('a.upload').click(function(){
-    $('input.upload').click();
-});</script>
+  <script type="text/javascript">
+  $(function() {
+    $('a.upload').click(function(){
+        $('input.upload').click();
+    })
+  });</script>
 <script type="text/javascript">
   $("document").ready(function(){
     $('#upload').change(
