@@ -1,4 +1,6 @@
-"Dr. Aleksandar Zecevic", "Dr. Sally Wood", "Dr. Tokunbo Ogunfunmi"
+"Advisors:"
+"Dr. Aleksandar Zecevic","Dr. Sally Wood","Dr. Tokunbo Ogunfunmi"
+"Course #","Course Title","Units","Selection Number ( usually 0 )","Catalog Description"
 "ELEN 211","Modern Network Analysis I",2,1,"A class"
 "ELEN 236","Linear Control Systems",2,1,"A class"
 "BIOE 251","Molecular Biology for Engineers",2,1,"A class"
