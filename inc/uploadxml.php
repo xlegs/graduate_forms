@@ -31,7 +31,9 @@ function rewriteArray( $oldarray ) {
     );
     foreach ( $array as $arraykey => $arrayvalue){
 	foreach( $oldarray[$arraykey] as $coursekey => $coursevalue){
-	    if( $coursekey == 0){
+	    if( $coursekey == 0 || $coursekey == 2)
+	    	continue;
+	    if( $coursekey == 1){
 		$array[$arraykey]['advisors'] = $coursevalue;
 	    }
 	    else{
@@ -45,6 +47,26 @@ function rewriteArray( $oldarray ) {
 	}
     }
     return $array;
+}
+
+function hash_index($str){
+        $hash = 5381;
+        $length = strlen($str);
+        for($i = 0; $i < $length; $i++) {
+		$hash = (($hash << 5) + $hash) + $str[$i];
+        }
+        return $hash;
+}
+
+function js_array($array){
+	$newarray = array();
+	foreach( $array as $arraykey => $arrayvalue){
+		foreach( $arrayvalue['courses'] as $coursekey => $coursevalue){
+			$index = hash_index($coursekey);
+			$newarray[$index] = $coursevalue;
+		}
+	}
+	return $newarray;
 }
 
 //take in a file name to be parsed
@@ -65,6 +87,9 @@ $csvArray = array( "systems" => $csv1, "communication_and_microwave" => $csv2, "
 
 $csvNewArray = rewriteArray($csvArray);
 $_SESSION['xmlDataBase'] = $csvNewArray;
+
+$js = js_array($csvNewArray); 
+//$JavaScript_Array = json_encode($js);
 
 //remove the these based on what actually needs to happen
 // echo "<pre>";
