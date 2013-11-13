@@ -89,11 +89,11 @@ $csvNewArray = rewriteArray($csvArray);
 $_SESSION['xmlDataBase'] = $csvNewArray;
 
 $js = js_array($csvNewArray); 
-//$JavaScript_Array = json_encode($js);
+$JavaScript_Array = json_encode($js);
 
 //remove the these based on what actually needs to happen
 // echo "<pre>";
-// print_r($csvNewArray);
+// print_r($JavaScript_Array);
 // //print_r($csvArray);
 // echo "</pre>";
 ?>

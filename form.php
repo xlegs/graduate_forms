@@ -49,7 +49,7 @@
 				<div class="row">
 					<div class="small-4 columns">
 					    <label>First Name</label>
-					    <input name="firstName" id="firstName" type="text" placeholder="First Name" value="<?php echo $file_data['firstName']?>">
+					    <input name="firstName" id="firstName" type="text" placeholder="First Name" value="<?php echo $file_data['firstName']?>" required>
 					</div>
 					<div class="small-4 columns">
 					    <label>Middle Name</label>
@@ -57,7 +57,7 @@
 					</div>
 					<div class="small-4 columns">
 					    <label>Last Name</label>
-					    <input name="lastName" id="lastName" type="text" placeholder="Last Name" value="<?php echo $file_data['lastName']?>">
+					    <input name="lastName" id="lastName" type="text" placeholder="Last Name" value="<?php echo $file_data['lastName']?>" required>
 					</div>
 			    </div>
 			    <div class="row">
@@ -68,13 +68,13 @@
 					    		<span class="prefix">W</span>
 					    	</div>
 							<div class="small-10 columns">
-					    		<input name="SCUid" id="SCUid" type="text" placeholder="0123456" value="<?php echo $file_data['SCUid']?>">
+					    		<input name="SCUid" id="SCUid" type="text" placeholder="0123456" value="<?php echo $file_data['SCUid']?>" required>
 					    	</div>
 					    </div>
 					</div>
 					<div class="small-4 columns">
 					    <label>Home Phone</label>
-					    <input name="homePhone" id="homePhone" type="text" placeholder="(408) 555-5555" value="<?php echo $file_data['homePhone']?>">
+					    <input name="homePhone" id="homePhone" type="text" placeholder="(408) 555-5555" value="<?php echo $file_data['homePhone']?>" required>
 					</div>
 					<div class="small-4 columns">
 					    <label>Work Phone</label>
@@ -84,12 +84,12 @@
 			    <div class="small-centered row">
 					<div class="small-4 columns">
 					    <label>E-mail Address</label>
-							<input name="email" id="email" type="email" placeholder="user@domain.com" value="<?php echo $file_data['email']?>">
+							<input name="email" id="email" type="email" placeholder="user@domain.com" value="<?php echo $file_data['email']?>" required>
 					</div>
 
 					<div class="small-4 columns">
 					    <label for="advisor">Faculty Advisor</label>
-						<select name="advisor" id="advisor">
+						<select name="advisor" id="advisor" required>
 						    <option>Select an advisor</option>
 							<?php
 								$temp = $_SESSION['xmlDataBase'][$area]['advisors'];
@@ -114,15 +114,15 @@
 						<div class="row"><hr/>
 							<div class="small-3 columns">
 							    <label>Course Number</label>
-							    <input name="core1_number" id="core1_number" type="text" placeholder="ELEN 000" value="<?php echo $file_data['core1_number']?>">
+							    <input name="core1_number" id="core1_number" type="text" placeholder="ELEN 000" value="<?php echo $file_data['core1_number']?>" required>
 							</div>
 							<div class="small-7 columns">
 							    <label>Course Title</label>
-							    <input name="core1_title" id="core1_title" type="text" placeholder="Course Title" value="<?php echo $file_data['core1_title']?>">
+							    <input name="core1_title" id="core1_title" type="text" placeholder="Course Title" value="<?php echo $file_data['core1_title']?>" required>
 							</div>
 							<div class="small-2 columns">
 							    <label>Number of Units</label>
-							    <input name="core1_units" id="core1_units" type="number"  min="0" max="5" value="<?php echo $file_data['core1_units']?>">
+							    <input name="core1_units" id="core1_units" type="number"  min="0" max="5" value="<?php echo $file_data['core1_units']?>" required>
 							</div>
 						</div>
 
@@ -135,15 +135,15 @@
 						<div class="row"><hr/>
 							<div class="small-3 columns">
 							    <label>Course Number</label>
-							    <input name="core2_number" id="core2_number" type="text" placeholder="ELEN 000" value="<?php echo $file_data['core2_number']?>">
+							    <input name="core2_number" id="core2_number" type="text" placeholder="ELEN 000" value="<?php echo $file_data['core2_number']?>" required>
 							</div>
 							<div class="small-7 columns">
 							    <label>Course Title</label>
-							    <input name="core2_title" id="core2_title" type="text" placeholder="Course Title" value="<?php echo $file_data['core2_title']?>">
+							    <input name="core2_title" id="core2_title" type="text" placeholder="Course Title" value="<?php echo $file_data['core2_title']?>" required>
 							</div>
 							<div class="small-2 columns">
 							    <label>Number of Units</label>
-							    <input name="core2_units" id="core2_units" type="number"  min="0" max="5" value="<?php echo $file_data['core2_units']?>">
+							    <input name="core2_units" id="core2_units" type="number"  min="0" max="5" value="<?php echo $file_data['core2_units']?>" required>
 							</div>
 						</div>
 
@@ -156,15 +156,15 @@
 						<div class="row"><hr/>
 							<div class="small-3 columns">
 							    <label>Course Number</label>
-							    <input name="core3_number" id="core3_number" type="text" placeholder="ELEN 000" value="<?php echo $file_data['core3_number']?>">
+							    <input name="core3_number" id="core3_number" type="text" placeholder="ELEN 000" value="<?php echo $file_data['core3_number']?>" required>
 							</div>
 							<div class="small-7 columns">
 							    <label>Course Title</label>
-							    <input name="core3_title" id="core3_title" type="text" placeholder="Course Title" value="<?php echo $file_data['core3_title']?>">
+							    <input name="core3_title" id="core3_title" type="text" placeholder="Course Title" value="<?php echo $file_data['core3_title']?>" required>
 							</div>
 							<div class="small-2 columns">
 							    <label>Number of Units</label>
-							    <input name="core3_units" id="core3_units" type="number"  min="0" max="5" value="<?php echo $file_data['core3_units']?>">
+							    <input name="core3_units" id="core3_units" type="number"  min="0" max="5" value="<?php echo $file_data['core3_units']?>" required>
 							</div>
 						</div>
 
@@ -187,15 +187,15 @@
 						 <div class="row"><hr/>
 						 	<div class="small-6 columns">
 						 		<label>Course Number</label>
-						 		<input name="amth1_number" id="amth1_number" placeholder="ELEN 000" type="text" value="<?php echo $file_data['amth1_number']?>">
+						 		<input name="amth1_number" id="amth1_number" placeholder="ELEN 000" type="text" value="<?php echo $file_data['amth1_number']?>" required>
 						 	</div>
 						 	<div class="small-6 columns">
 						 		<label>Course Units</label>
-							    <input name="amth1_units" id="amth1_units" type="number"  min="0" max="5" value="<?php echo $file_data['amth1_units']?>">
+							    <input name="amth1_units" id="amth1_units" type="number"  min="0" max="5" value="<?php echo $file_data['amth1_units']?>" required>
 						 	</div>
 						 </div>
 					    <label>Course Title</label>
-					    <input name="amth1_title" id="amth1_title" placeholder="Course Title" type="text" value="<?php echo $file_data['amth1_title']?>">
+					    <input name="amth1_title" id="amth1_title" placeholder="Course Title" type="text" value="<?php echo $file_data['amth1_title']?>" required>
 
 					</div>
 					<div class="small-6 columns">
@@ -203,15 +203,15 @@
 						 <div class="row"><hr/>
 						 	<div class="small-6 columns">
 						 		<label>Course Number</label>
-						 		<input name="amth2_number" id="amth2_number" placeholder="ELEN 000" type="text" value="<?php echo $file_data['amth2_number']?>">
+						 		<input name="amth2_number" id="amth2_number" placeholder="ELEN 000" type="text" value="<?php echo $file_data['amth2_number']?>" required>
 						 	</div>
 						 	<div class="small-6 columns">
 						 		<label>Course Units</label>
-							    <input name="amth2_units" id="amth2_units" type="number"  min="0" max="5" value="<?php echo $file_data['amth2_units']?>">
+							    <input name="amth2_units" id="amth2_units" type="number"  min="0" max="5" value="<?php echo $file_data['amth2_units']?>" required>
 						 	</div>
 						 </div>
 					    <label>Course Title</label>
-					    <input name="amth2_title" id="amth2_title" placeholder="Course Title" type="text" value="<?php echo $file_data['amth2_title']?>">
+					    <input name="amth2_title" id="amth2_title" placeholder="Course Title" type="text" value="<?php echo $file_data['amth2_title']?>" required>
 
 					</div>
 			    </div>

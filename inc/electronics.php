@@ -14,7 +14,7 @@
 							foreach ($file_data['focus1'] as $val) {
 								if ($val == $str) echo "CHECKED";
 							}
-							echo ' name="focus1" id="focus1-'.$i.'" type="radio" value="'.$key.' - '.$value['units'].'"> '.$key.'<br/>'.$value['name'].' - '.$value["units"];
+							echo ' name="focus1" id="focus1-'.$i.'" type="radio" value="'.$key.' - '.$value['units'].'" required> '.$key.'<br/>'.$value['name'].' - '.$value["units"];
 							echo "</label>";
 						}
 					?>
@@ -55,7 +55,7 @@
 							foreach ($file_data['focus2'] as $val) {
 								if ($val == $str) echo "CHECKED";
 							}
-							echo ' name="focus2" id="focus2-'.$i.'" type="radio" value="'.$key.' - '.$value['units'].'"> '.$key.'<br/>'.$value['name'].' - '.$value["units"];
+							echo ' name="focus2" id="focus2-'.$i.'" type="radio" value="'.$key.' - '.$value['units'].'" required> '.$key.'<br/>'.$value['name'].' - '.$value["units"];
 							echo "</label>";
 						}
 					?>
@@ -94,7 +94,7 @@
 							echo "<label>";
 							echo "<input ";
 							if ($file_data['focus3'] == $str) echo "CHECKED";
-							echo ' name="focus3" id="focus3-'.$i.'" type="radio" value="'.$key.' - '.$value['units'].'"> '.$key.'<br/>'.$value['name'].' - '.$value['units'];
+							echo ' name="focus3" id="focus3-'.$i.'" type="radio" value="'.$key.' - '.$value['units'].'" required> '.$key.'<br/>'.$value['name'].' - '.$value['units'];
 							echo "</label>";
 						}
 					?>
@@ -127,7 +127,7 @@
 			    <div class="row">
 					<div class="small-6 columns">
 						 <label for="breadth1">Systems</label>
-						<select id="breadth1" name="breadth1">
+						<select id="breadth1" name="breadth1" required>
 						    <option value="">Select a course</option>
 						    <option value="Other">Substitute for other...</option>
 							<?php
@@ -163,7 +163,7 @@
 					</div>
 					<div class="small-6 columns">
 						 <label for="breadth2">Communication &amp; Microwave</label>
-						<select id="breadth2" name="breadth2">
+						<select id="breadth2" name="breadth2" required>
 						    <option value="">Select a course</option>
 						    <option value="Other">Substitute for other...</option>
 

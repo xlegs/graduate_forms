@@ -77,13 +77,13 @@
 			    <legend>Graduate Core Requirements (minimum of 6 units)</legend>
 				<div class="row">
 					<div class="small-4 columns">
-					    <p><?php echo $_POST['core1'];?></p>
+					    <p><?php echo $_POST['core1_number']." - ".$_POST['core1_title']." - ".$_POST['core1_units'];?></p>
 					</div>
 					<div class="small-4 columns">
-					    <p><?php echo $_POST['core2'];?></p>
+					    <p><?php echo $_POST['core2_number']." - ".$_POST['core2_title']." - ".$_POST['core2_units'];?></p>
 					</div>
 					<div class="small-4 columns">
-					    <p><?php echo $_POST['core3'];?></p>
+					    <p><?php echo $_POST['core3_number']." - ".$_POST['core3_title']." - ".$_POST['core3_units'];?></p>
 					</div>
 			    </div>    
 			  </fieldset>

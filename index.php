@@ -15,10 +15,7 @@
   <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/form.css">
 
-  <style type="text/css">
 
-}
-  </style>
   
 
   <script src="js/vendor/custom.modernizr.js"></script>
@@ -54,8 +51,6 @@
 			<form enctype="multipart/form-data" action="form.php" method="post">
 				<label>Upload File</label>
 				<input type="file" class="upload" name="upload" id="upload" >
-				<a href="#" class="button upload small secondary">Browse...</a>
-        <span id="filename">No file selected</span><br/>
 				<input class="button" type="submit" value="Go">
 			</form>
 
@@ -105,25 +100,8 @@
   <script src="js/foundation/foundation.abide.js"></script>
   
   -->
-  <script type="text/javascript">
-  $(function() {
-    $('a.upload').click(function(){
-        $('input.upload').click();
-    })
-  });</script>
-<script type="text/javascript">
-  $("document").ready(function(){
-    $('#upload').change(
-        function(){
-          var str = $('#upload').val();
-          var n = str.lastIndexOf("\\");
-          str = str.substring(n+1);
-          $('#filename').text(str);
-        }
-      );
-  });
 
-</script>
+
   <script>
     $(document).foundation();
   </script>

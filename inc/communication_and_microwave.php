@@ -89,7 +89,7 @@
 			    <div class="row">
 					<div class="small-6 columns">
 						 <label for="breadth1">Electronics</label>
-						<select id="breadth1" name="breadth1">
+						<select id="breadth1" name="breadth1" required>
 						    <option value="">Select a course</option>
 						    <option value="Other">Substitute for other...</option>
 							<?php
@@ -126,7 +126,7 @@
 					</div>
 					<div class="small-6 columns">
 						 <label for="breadth2">Systems</label>
-						<select id="breadth2" name="breadth2">
+						<select id="breadth2" name="breadth2" required>
 						    <option value="">Select a course</option>
 						    <option value="Other">Substitute for other...</option>
 							<?php
