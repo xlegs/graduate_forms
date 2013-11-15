@@ -442,7 +442,7 @@ for ($i=1; $i < $transferMax+1; $i++) {
   	$('div[class*="transfer"] input').change(newTransfer);
   	$('div[class*="elective"] input').change(fillElective);
   	$('div[class*="transfer"] input').change(fillTransfer);
-  	$('input[name*="number"').change(autocomplete);
+  	$('input[name*="number"]').change(autocomplete);
   });
   </script>
 
