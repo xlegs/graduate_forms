@@ -124,13 +124,19 @@ function addUnits () {
  	$('.totalUnits').text(scuUnits+transferUnits).val(scuUnits+transferUnits);
 }
 
-// function populate (id) {
-// 	// 
-// 	var fieldId = id.substring(id.indexOf('_'));
+function autocomplete() {
+	var fields = $(this).attr("name").split("_");
+	var num = $(this).val().trim().toUpperCase();
+	var db = window.database[num];
+	fields.pop();
+	fields = fields.join("_");
 
-// 	$(fieldId+)
-// }
-
+	if (db!="undefined") {
+		$('input[name="'+fields+'_number"]').val(num);
+		$('input[name="'+fields+'_title"]').val(db["name"]);
+		$('input[name="'+fields+'_units"]').val(db["units"]);
+	};
+}
 function newElective() {
 	var i = $(this).attr("id");
 
@@ -161,3 +167,44 @@ function newTransfer() {
 
 	}
 }
+function fillTransfer() {
+	var i = $(this).attr("id");
+	var temp=0;
+
+
+	if (i !== 'undefined') {
+
+		i = i.trim().split("_",1);
+		temp = $('input[name*="'+i+'"]').filter(function() { return $(this).val() == ""; }).length;
+		if (temp==5) {
+			$('input[name*="'+i+'"]').removeAttr('required');
+		} else{
+			$('input[name*="'+i+'"]').attr('required', 'required');
+		};
+	}
+}
+function fillElective() {
+	var i = $(this).attr("id");
+	var temp=0;
+
+
+	if (i !== 'undefined') {
+
+		i = i.trim().split("_",1);
+		temp = $('input[name*="'+i+'"]').filter(function() { return $(this).val() == ""; }).length;
+		if (temp==3) {
+			$('input[name*="'+i+'"]').removeAttr('required');
+		} else{
+			$('input[name*="'+i+'"]').attr('required', 'required');
+		};
+	}
+}
+(function($) {
+    $.fn.toggleRequired = function() {
+        return this.each(function() {
+            var $this = $(this);
+            if ($this.attr('required')) $this.removeAttr('required');
+            else $this.attr('required', 'required');
+        });
+    };
+})(jQuery);

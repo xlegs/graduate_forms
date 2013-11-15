@@ -42,7 +42,7 @@
 
 	<div class="row">
 		<div class="small-12 columns">
-			<form action="print.php" method="post">
+			<form action="print.php" method="post" data-abide>
 				<input name="area" type="hidden" value="<?php  echo $area;?>">
 			  <fieldset>
 			    <legend>Personal Information</legend>
@@ -90,7 +90,7 @@
 					<div class="small-4 columns">
 					    <label for="advisor">Faculty Advisor</label>
 						<select name="advisor" id="advisor" required>
-						    <option>Select an advisor</option>
+						    <option value="">Select an advisor</option>
 							<?php
 								$temp = $_SESSION['xmlDataBase'][$area]['advisors'];
 								$i=0;
@@ -121,8 +121,8 @@
 							    <input name="core1_title" id="core1_title" type="text" placeholder="Course Title" value="<?php echo $file_data['core1_title']?>" required>
 							</div>
 							<div class="small-2 columns">
-							    <label>Number of Units</label>
-							    <input name="core1_units" id="core1_units" type="number"  min="0" max="5" value="<?php echo $file_data['core1_units']?>" required>
+							    <label>Number of Units <small>1-5</small></label>
+							    <input name="core1_units" id="core1_units"  type="text" value="<?php echo $file_data['core1_units']?>"  pattern="max5" required>
 							</div>
 						</div>
 
@@ -142,8 +142,8 @@
 							    <input name="core2_title" id="core2_title" type="text" placeholder="Course Title" value="<?php echo $file_data['core2_title']?>" required>
 							</div>
 							<div class="small-2 columns">
-							    <label>Number of Units</label>
-							    <input name="core2_units" id="core2_units" type="number"  min="0" max="5" value="<?php echo $file_data['core2_units']?>" required>
+							    <label>Number of Units <small>1-5</small></label>
+							    <input name="core2_units" id="core2_units" type="text" value="<?php echo $file_data['core2_units']?>"  pattern="max5" required>
 							</div>
 						</div>
 
@@ -163,8 +163,8 @@
 							    <input name="core3_title" id="core3_title" type="text" placeholder="Course Title" value="<?php echo $file_data['core3_title']?>" required>
 							</div>
 							<div class="small-2 columns">
-							    <label>Number of Units</label>
-							    <input name="core3_units" id="core3_units" type="number"  min="0" max="5" value="<?php echo $file_data['core3_units']?>" required>
+							    <label>Number of Units <small>1-5</small></label>
+							    <input name="core3_units" id="core3_units" type="text" value="<?php echo $file_data['core3_units']?>"  pattern="max5" required>
 							</div>
 						</div>
 
@@ -190,8 +190,8 @@
 						 		<input name="amth1_number" id="amth1_number" placeholder="ELEN 000" type="text" value="<?php echo $file_data['amth1_number']?>" required>
 						 	</div>
 						 	<div class="small-6 columns">
-						 		<label>Course Units</label>
-							    <input name="amth1_units" id="amth1_units" type="number"  min="0" max="5" value="<?php echo $file_data['amth1_units']?>" required>
+						 		<label>Course Units <small>1-5</small></label>
+							    <input name="amth1_units" id="amth1_units" type="text" value="<?php echo $file_data['amth1_units']?>" pattern="max5" required>
 						 	</div>
 						 </div>
 					    <label>Course Title</label>
@@ -206,8 +206,8 @@
 						 		<input name="amth2_number" id="amth2_number" placeholder="ELEN 000" type="text" value="<?php echo $file_data['amth2_number']?>" required>
 						 	</div>
 						 	<div class="small-6 columns">
-						 		<label>Course Units</label>
-							    <input name="amth2_units" id="amth2_units" type="number"  min="0" max="5" value="<?php echo $file_data['amth2_units']?>" required>
+						 		<label>Course Units <small>1-5</small></label>
+							    <input name="amth2_units" id="amth2_units" type="text" value="<?php echo $file_data['amth2_units']?>"  pattern="max5" required>
 						 	</div>
 						 </div>
 					    <label>Course Title</label>
@@ -248,8 +248,8 @@ for ($i=1; $i < $electiveMax+1; $i++) {
 					    <input name="elective'.$i.'_title" id="elective'.$i.'_title" type="text" placeholder="Course Title" value="'.$file_data['elective'.$i.'_title'].'">
 					</div>
 					<div class="small-2 columns">
-					    <label>Number of Units</label>
-					    <input name="elective'.$i.'_units" id="elective'.$i.'_units" type="number"  min="0" max="5" value="'.$file_data['elective'.$i.'_units'].'">
+					    <label>Number of Units <small>1-5</small></label>
+					    <input name="elective'.$i.'_units" id="elective'.$i.'_units" type="text" value="'.$file_data['elective'.$i.'_units'].'" pattern="max5">
 					</div>
 					
 			    </div>
@@ -308,8 +308,8 @@ for ($i=1; $i < $transferMax+1; $i++) {
 					    <input name="transfer'.$i.'_title" id="transfer'.$i.'_title" type="text" placeholder="Course Title" value="'.$file_data['transfer'.$i.'_title'].'">
 					</div>
 					<div class="small-2 columns">
-					    <label>Number of Units</label>
-					    <input name="transfer'.$i.'_units" id="transfer'.$i.'_units" type="number"  min="0" max="9" value="'.$file_data['transfer'.$i.'_units'].'">
+					    <label>Number of Units <small>1-9</small></label>
+					    <input name="transfer'.$i.'_units" id="transfer'.$i.'_units" type="text" value="'.$file_data['transfer'.$i.'_units'].'" pattern="max9">
 					</div>
 					<div class="small-2 columns">
 					    <label>Grade</label>
@@ -377,6 +377,7 @@ for ($i=1; $i < $transferMax+1; $i++) {
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   
   <script src="js/foundation.min.js"></script>
+   <script src="js/foundation/foundation.abide.js"></script>
   <!--
   
   <script src="js/foundation/foundation.js"></script>
@@ -409,12 +410,21 @@ for ($i=1; $i < $transferMax+1; $i++) {
   
   <script src="js/foundation/foundation.placeholder.js"></script>
   
-  <script src="js/foundation/foundation.abide.js"></script>
+ 
   
   -->
   
   <script>
-    $(document).foundation();
+    $(document).foundation().foundation('abide', {
+   live_validate : true,
+   focus_on_invalid : true,
+   timeout : 1000,
+
+    patterns : {
+    max5:/^[1-5]$/,
+    max9:/^[1-9]$/
+  }
+});
   </script>
   <script type="text/javascript" src="js/form_functions.js"></script>
 			  <?php include 'inc/'.$area.'_js.php'; ?>
@@ -425,9 +435,14 @@ for ($i=1; $i < $transferMax+1; $i++) {
 });
   </script>
   <script type="text/javascript">
+  	window.database = <?php echo $JavaScript_Array;?>;
   $(function(){ 
+
   	$('div[class*="elective"] input').change(newElective);
   	$('div[class*="transfer"] input').change(newTransfer);
+  	$('div[class*="elective"] input').change(fillElective);
+  	$('div[class*="transfer"] input').change(fillTransfer);
+  	$('input[name*="number"').change(autocomplete);
   });
   </script>
 

@@ -37,8 +37,8 @@
       <form action="form.php" method="post">
 
 				<label for="area">Area of Study</label>
-				<select name="area" id="area">
-				    <option SELECTED>Select an area</option>
+				<select name="area" id="area" required>
+				    <option SELECTED value="">Select an area</option>
 				    <option value="systems">Systems</option>
 				    <option value="communication_and_microwave">Communication and Microwave</option>
 				    <option value="electronics">Electronics</option>
@@ -50,7 +50,7 @@
 			<h4>Continue From a File</h4>
 			<form enctype="multipart/form-data" action="form.php" method="post">
 				<label>Upload File</label>
-				<input type="file" class="upload" name="upload" id="upload" >
+				<input type="file" class="upload" name="upload" id="upload" required>
 				<input class="button" type="submit" value="Go">
 			</form>
 

@@ -49,21 +49,11 @@ function rewriteArray( $oldarray ) {
     return $array;
 }
 
-function hash_index($str){
-        $hash = 5381;
-        $length = strlen($str);
-        for($i = 0; $i < $length; $i++) {
-		$hash = (($hash << 5) + $hash) + $str[$i];
-        }
-        return $hash;
-}
-
 function js_array($array){
 	$newarray = array();
 	foreach( $array as $arraykey => $arrayvalue){
 		foreach( $arrayvalue['courses'] as $coursekey => $coursevalue){
-			$index = hash_index($coursekey);
-			$newarray[$index] = $coursevalue;
+			$newarray[$coursekey] = $coursevalue;
 		}
 	}
 	return $newarray;
