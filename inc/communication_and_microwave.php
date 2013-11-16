@@ -96,7 +96,7 @@
 						 <label for="breadth1">Electronics</label>
 						<select id="breadth1" name="breadth1" required>
 						    <option value="">Select a course</option>
-						    <option value="Other">Substitute for other...</option>
+						    <option value="Other" <?php if($file_data['breadth1']=="Other") echo "SELECTED"?>>Substitute for other...</option>
 							<?php
 								$temp = $_SESSION['xmlDataBase']['electronics']['courses'];
 								$i=0;
@@ -111,29 +111,28 @@
 
 						  </select>
 
-						 <div class="breadth1_other <?php if($file_data['breadth1_other']!="Other") echo "disabled"?>">
+						 <div class="breadth1_other <?php if($file_data['breadth1']!="Other") echo "disabled"?>">
 
 						 <div class="row"><hr/>
 						 	<div class="small-6 columns">
 						 		<label>Course Number</label>
-						 		<input name="breadth1_other_number" id="breadth1_other_number" placeholder="ELEN 000" type="text" value="<?php echo $file_data['breadth1_other_number']?>" <?php if($file_data['breadth1_other']=="Other") echo "required"?>>
+						 		<input name="breadth1_other_number" id="breadth1_other_number" placeholder="ELEN 000" type="text" value="<?php echo $file_data['breadth1_other_number']?>" <?php if($file_data['breadth1']=="Other") echo "required"?>>
 						 	</div>
 						 	<div class="small-6 columns">
 						 		<label>Course Units <small>1-5</small></label>
-							    <input name="breadth1_other_units" id="breadth1_other_units" type="text" pattern="max5" value="<?php echo $file_data['breadth1_other_units']?>" <?php if($file_data['breadth1_other']=="Other") echo "required"?>>
+							    <input name="breadth1_other_units" id="breadth1_other_units" type="text" pattern="max5" value="<?php echo $file_data['breadth1_other_units']?>" <?php if($file_data['breadth1']=="Other") echo "required"?>>
 						 	</div>
 						 </div>
 					    <label>Course Title</label>
-					    <input name="breadth1_other_title" id="breadth1_other_title" placeholder="Course Title" type="text" value="<?php echo $file_data['breadth1_other_title']?>" <?php if($file_data['breadth1_other']=="Other") echo "required"?>>
+					    <input name="breadth1_other_title" id="breadth1_other_title" placeholder="Course Title" type="text" value="<?php echo $file_data['breadth1_other_title']?>" <?php if($file_data['breadth1']=="Other") echo "required"?>>
 
 					    </div>
-						<p>When a student selects a course from the above drop-down menu, that course's information will appear here.</p>
 					</div>
 					<div class="small-6 columns">
 						 <label for="breadth2">Systems</label>
 						<select id="breadth2" name="breadth2" required>
 						    <option value="">Select a course</option>
-						    <option value="Other">Substitute for other...</option>
+						    <option value="Other" <?php if($file_data['breadth2']=="Other") echo "SELECTED"?>>Substitute for other...</option>
 							<?php
 								$temp = $_SESSION['xmlDataBase']['systems']['courses'];
 								$i=0;
@@ -146,24 +145,22 @@
 								}
 							?>
 						  </select>
-						<div class="breadth2_other <?php if($file_data['breadth2_other']!="Other") echo "disabled"?>">
+						 <div class="breadth2_other <?php if($file_data['breadth2']!="Other") echo "disabled"?>">
 
 						 <div class="row"><hr/>
 						 	<div class="small-6 columns">
 						 		<label>Course Number</label>
-						 		<input name="breadth2_other_number" id="breadth2_other_number" placeholder="ELEN 000" type="text" value="<?php echo $file_data['breadth2_other_number']?>" <?php if($file_data['breadth2_other']=="Other") echo "required"?>>
+						 		<input name="breadth2_other_number" id="breadth2_other_number" placeholder="ELEN 000" type="text" value="<?php echo $file_data['breadth2_other_number']?>" <?php if($file_data['breadth2']=="Other") echo "required"?>>
 						 	</div>
 						 	<div class="small-6 columns">
 						 		<label>Course Units <small>1-5</small></label>
-							    <input name="breadth2_other_units" id="breadth2_other_units" type="text" pattern="max5" value="<?php echo $file_data['breadth2_other_units']?>" <?php if($file_data['breadth2_other']=="Other") echo "required"?>>
+							    <input name="breadth2_other_units" id="breadth2_other_units" type="text" pattern="max5" value="<?php echo $file_data['breadth2_other_units']?>" <?php if($file_data['breadth2']=="Other") echo "required"?>>
 						 	</div>
 						 </div>
 					    <label>Course Title</label>
-					    <input name="breadth2_other_title" id="breadth2_other_title" placeholder="Course Title" type="text" value="<?php echo $file_data['breadth2_other_title']?>" <?php if($file_data['breadth2_other']=="Other") echo "required"?>>
+					    <input name="breadth2_other_title" id="breadth2_other_title" placeholder="Course Title" type="text" value="<?php echo $file_data['breadth2_other_title']?>" <?php if($file_data['breadth2']=="Other") echo "required"?>>
 
 					    </div>
-
-						<p>When a student selects a course from the above drop-down menu, that course's information will appear here.</p>
 
 					</div>
 				</div>

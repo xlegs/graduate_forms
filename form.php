@@ -281,7 +281,7 @@ for ($i=1; $i < $electiveMax+1; $i++) {
 						    <option value="">Select an institution</option>
 						    <option <?php if ($file_data['institution']=="Santa Clara University") {echo "SELECTED ";}?> value="Santa Clara University">Santa Clara University (12 units maximum)</option>
 						    <option <?php if ($file_data['institution']=="Santa Clara University 5 Year Program") {echo "SELECTED ";}?>value="Santa Clara University 5 Year Program">Santa Clara University 5 Year Program (20 units maximum)</option>
-						    <option <?php if ($file_data['institution']==" Other") {echo "SELECTED ";}?>value="Other">Other (9 units maximum)</option>
+						    <option <?php if ($file_data['institution']=="Other") {echo "SELECTED ";}?>value="Other">Other (9 units maximum)</option>
 						  </select>
 					</div>
 
@@ -300,7 +300,7 @@ for ($i=1; $i < $transferMax+1; $i++) {
 	echo '
 				<div class="row transfer'.$i.' '.$active.'">
 					<div class="small-2 columns">
-					    <label>Course Number</label>
+					    <label>Course #</label>
 					    <input name="transfer'.$i.'_number" id="transfer'.$i.'_number" type="text" placeholder="ELEN 000" value="'.$file_data['transfer'.$i.'_number'].'">
 					</div>
 					<div class="small-4 columns">
@@ -443,6 +443,15 @@ for ($i=1; $i < $transferMax+1; $i++) {
   	$('div[class*="elective"] input').change(fillElective);
   	$('div[class*="transfer"] input').change(fillTransfer);
   	$('input[name*="number"]').change(autocomplete);
+  	$('input[type!="checkbox"],select').change(showInfo);
+  	$('input[type!="checkbox"][type!="radio"]:visible,select').each(showInfo);
+  	$('form').on('invalid', function () {
+	    var invalid_fields = $(this).find('[data-invalid]');
+	    console.log(invalid_fields);
+	  });
+	  $('form').on('valid', function () {
+	    console.log('valid!');
+	  });
   });
   </script>
 

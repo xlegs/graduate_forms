@@ -41,5 +41,14 @@ $("#breadth2").change(
 	}
 	
 );
+$("form").submit(
+	function() {
+		if ( $("input[name*='focus1']:checked").length != 2) {
+			$("input[name*='focus1']:checked").attr('data-invalid', 'data-invalid');
+			$("input[name*='focus1']:checked").parent().addClass('error');
+		}
+
+	}
+);
 
 </script>

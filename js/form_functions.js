@@ -131,7 +131,9 @@ function autocomplete() {
 	fields.pop();
 	fields = fields.join("_");
 
-	if (db!="undefined") {
+	if (fields.indexOf("transfer")!=-1 && ($("#institution").val()=="Other" || $("#institution").val()=="")) return;
+
+	if (db) {
 		$('input[name="'+fields+'_number"]').val(num);
 		$('input[name="'+fields+'_title"]').val(db["name"]);
 		$('input[name="'+fields+'_units"]').val(db["units"]);
@@ -141,7 +143,7 @@ function newElective() {
 	var i = $(this).attr("id");
 
 
-	if (i !== 'undefined') {
+	if (i) {
 
 		i = i.trim();
 		i = parseInt(i.charAt(8));
@@ -156,7 +158,7 @@ function newTransfer() {
 	var i = $(this).attr("id");
 
 
-	if (i !== 'undefined') {
+	if (i) {
 
 		i = i.trim();
 		i = parseInt(i.charAt(8));
@@ -172,7 +174,7 @@ function fillTransfer() {
 	var temp=0;
 
 
-	if (i !== 'undefined') {
+	if (i) {
 
 		i = i.trim().split("_",1);
 		temp = $('input[name*="'+i+'"]').filter(function() { return $(this).val() == ""; }).length;
@@ -188,7 +190,7 @@ function fillElective() {
 	var temp=0;
 
 
-	if (i !== 'undefined') {
+	if (i) {
 
 		i = i.trim().split("_",1);
 		temp = $('input[name*="'+i+'"]').filter(function() { return $(this).val() == ""; }).length;
@@ -197,6 +199,49 @@ function fillElective() {
 		} else{
 			$('input[name*="'+i+'"]').attr('required', 'required');
 		};
+	}
+}
+function showInfo() {
+	var type = $(this).attr('type');
+	var fields = $(this).attr("name").split("_");
+	if (type=='text') {
+		fields.pop();
+		fields = fields.join("_");
+	}
+
+	if (fields.indexOf("transfer")!=-1 && ($("#institution").val()=="Other" || $("#institution").val()=="")) return;
+
+	//Syllabus Link
+	var target = $(this).siblings().filter('label:first');
+
+	if (type!='text') {
+		var num = $(this).val().split("-").shift().trim();
+	} else{
+		var num = $(this).val().trim().toUpperCase();
+	}
+
+	$("."+fields+"_info").remove();
+	var string = "<span class='"+fields+"_info'> &middot; <a target='_blank' href='http://syllabi.engr.scu.edu/list.cgi?dept=";
+	var temp = num.split(" ");
+	var dept = temp[0];
+	var number = temp[1];
+
+	if (dept.match(/^[\S]{4}$/) && number) {
+		string = string + dept + "&crse=" + number + "'>";
+		string = string + "Syllabi</a></span>";
+		target.append(string);
+	}
+
+	//Modal
+	if (type=='text') target = $('input[name="'+fields+'_title"]').siblings().filter('label:last');
+	var db = window.database[num];
+	string = "<span class='"+fields+"_info'> &middot; <a href='#' data-reveal-id='"+fields+"_modal'>Course Description</a></span>";
+
+	if (db) {
+		var modal = "<div id='"+fields+"_modal' class='reveal-modal "+fields+"_info'> <h4>"+num+" - "+db['name']+" - "+db['units']+"</h4> <p>"+db['description']+"</p> <a class='close-reveal-modal'>&#215;</a> </div>"; 
+
+		target.append(string);
+		target.append(modal);
 	}
 }
 (function($) {
