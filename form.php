@@ -110,8 +110,8 @@
 			    <legend>Graduate Core Requirements (minimum of 6 units)</legend>
 				<div class="row">
 					<div class="small-12 columns">
-					    <label>Emerging Topics in Engineering</label>
-						<div class="row"><hr/>
+					    <h6>Emerging Topics in Engineering</h6>
+						<div class="row">
 							<div class="small-3 columns">
 							    <label>Course Number</label>
 							    <input name="core1_number" id="core1_number" type="text" placeholder="ELEN 000" value="<?php echo $file_data['core1_number']?>" required>
@@ -131,8 +131,8 @@
 					</div>
 				<div class="row">
 					<div class="small-12 columns">
-					    <label>Engineering and Business/Entrepreneurship</label>
-						<div class="row"><hr/>
+					    <h6>Engineering and Business/Entrepreneurship</h6>
+						<div class="row">
 							<div class="small-3 columns">
 							    <label>Course Number</label>
 							    <input name="core2_number" id="core2_number" type="text" placeholder="ELEN 000" value="<?php echo $file_data['core2_number']?>" required>
@@ -152,8 +152,8 @@
 					</div>
 				<div class="row">
 					<div class="small-12 columns">
-					    <label>Engineering and Society</label>
-						<div class="row"><hr/>
+					    <h6>Engineering and Society</h6>
+						<div class="row">
 							<div class="small-3 columns">
 							    <label>Course Number</label>
 							    <input name="core3_number" id="core3_number" type="text" placeholder="ELEN 000" value="<?php echo $file_data['core3_number']?>" required>
@@ -364,7 +364,7 @@ for ($i=1; $i < $transferMax+1; $i++) {
 							<li>To complete the program as approved with a minimum of 45 units and 3.0 GPA.</li>
 
 						</ul>
-						<input type="submit" class="button">
+						<input type="submit" class="button" value="Submit">
 					</div>
 			</div>
 

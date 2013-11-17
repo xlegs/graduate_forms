@@ -231,18 +231,6 @@ function showInfo() {
 		string = string + "Syllabi</a></span>";
 		target.append(string);
 	}
-
-	//Modal
-	if (type=='text') target = $('input[name="'+fields+'_title"]').siblings().filter('label:last');
-	var db = window.database[num];
-	string = "<span class='"+fields+"_info'> &middot; <a href='#' data-reveal-id='"+fields+"_modal'>Course Description</a></span>";
-
-	if (db) {
-		var modal = "<div id='"+fields+"_modal' class='reveal-modal "+fields+"_info'> <h4>"+num+" - "+db['name']+" - "+db['units']+"</h4> <p>"+db['description']+"</p> <a class='close-reveal-modal'>&#215;</a> </div>"; 
-
-		target.append(string);
-		target.append(modal);
-	}
 }
 (function($) {
     $.fn.toggleRequired = function() {

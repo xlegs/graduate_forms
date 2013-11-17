@@ -12,7 +12,7 @@
 							// $str=$key.' - '.$value['name'].' - '.$value['units'];
 							echo "<label>";
 							echo "<input ";
-							echo ' name="focus'.$i.'" id="focus'.$i.'" type="hidden" value="'.$key.' - '.$value['units'].'"> '.$key.' - '.$value['name'].' - '.$value["units"];
+							echo ' name="focus'.$i.'" id="focus'.$i.'" type="hidden" value="'.$key.' - '.$value['name'].', '.$value["units"].' Units"> '.$key.' - '.$value['name'].', '.$value["units"].' Units';
 							echo "</label>";
 						}
 					?>
@@ -105,7 +105,7 @@
 									$str=$key.' - '.$value['units'];
 									echo "<option ";
 									if ($file_data['breadth1'] == $str) echo "SELECTED";
-									echo ' value="'.$key.' - '.$value['units'].'"> '.$key.' - '.$value['name'].' - '.$value['units'].'</option>';
+									echo ' value="'.$key.' - '.$value['name'].', '.$value["units"].' Units"> '.$key.' - '.$value['name'].', '.$value["units"].' Units</option>';
 								}
 							?>
 
@@ -141,7 +141,7 @@
 									$str=$key.' - '.$value['units'];
 									echo "<option ";
 									if ($file_data['breadth2'] == $str) echo "SELECTED";
-									echo ' value="'.$key.' - '.$value['units'].'"> '.$key.' - '.$value['name'].' - '.$value['units'].'</option>';
+									echo ' value="'.$key.' - '.$value['name'].', '.$value["units"].' Units"> '.$key.' - '.$value['name'].', '.$value["units"].' Units</option>';
 								}
 							?>
 						  </select>

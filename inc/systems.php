@@ -14,7 +14,7 @@
 							foreach ($file_data['focus1'] as $val) {
 								if ($val == $str) echo "CHECKED";
 							}
-							echo ' name="focus1[]" id="focus1-'.$i.'" type="checkbox" value="'.$key.' - '.$value['units'].'"> '.$key.' - '.$value['name'].' - '.$value["units"];
+							echo ' name="focus1[]" id="focus1-'.$i.'" type="checkbox" value="'.$key.' - '.$value['name'].', '.$value["units"].' Units"> '.$key.' - '.$value['name'].', '.$value["units"].' Units';
 							echo "</label>";
 						}
 					?><hr/>
@@ -74,7 +74,7 @@
 							echo "<input ";
 							if ($file_data['focus3'] == $str) echo "CHECKED";
 							if($file_data['focus3_other']!="Other") echo "required";
-							echo ' name="focus3" id="focus3-'.$i.'" type="radio" value="'.$key.' - '.$value['units'].'"> '.$key.' - '.$value['name'].' - '.$value['units'];
+							echo ' name="focus3" id="focus3-'.$i.'" type="radio" value="'.$key.' - '.$value['name'].', '.$value["units"].' Units"> '.$key.' - '.$value['name'].', '.$value["units"].' Units';
 							echo "</label>";
 						}
 					?><hr/>
@@ -118,7 +118,7 @@
 									$str=$key.' - '.$value['units'];
 									echo "<option ";
 									if ($file_data['breadth1'] == $str) echo "SELECTED";
-									echo ' value="'.$key.' - '.$value['units'].'"> '.$key.' - '.$value['name'].' - '.$value['units'].'</option>';
+									echo ' value="'.$key.' - '.$value['name'].', '.$value["units"].' Units"> '.$key.' - '.$value['name'].', '.$value["units"].' Units</option>';
 								}
 							?>
 
@@ -155,7 +155,7 @@
 									$str=$key.' - '.$value['units'];
 									echo "<option ";
 									if ($file_data['breadth2'] == $str) echo "SELECTED";
-									echo ' value="'.$key.' - '.$value['units'].'"> '.$key.' - '.$value['name'].' - '.$value['units'].'</option>';
+									echo ' value="'.$key.' - '.$value['name'].', '.$value["units"].' Units"> '.$key.' - '.$value['name'].', '.$value["units"].' Units</option>';
 								}
 							?>
 						  </select>

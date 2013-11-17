@@ -77,24 +77,24 @@
 			    <legend>Graduate Core Requirements (minimum of 6 units)</legend>
 				<div class="row">
 					<div class="small-4 columns">
-					    <p><?php echo $_POST['core1_number']." - ".$_POST['core1_title']." - ".$_POST['core1_units'];?></p>
+					    <p><?php echo $_POST['core1_number']." - ".$_POST['core1_title'].", ".$_POST['core1_units']." Units";?></p>
 					</div>
 					<div class="small-4 columns">
-					    <p><?php echo $_POST['core2_number']." - ".$_POST['core2_title']." - ".$_POST['core2_units'];?></p>
+					    <p><?php echo $_POST['core2_number']." - ".$_POST['core2_title'].", ".$_POST['core2_units']." Units";?></p>
 					</div>
 					<div class="small-4 columns">
-					    <p><?php echo $_POST['core3_number']." - ".$_POST['core3_title']." - ".$_POST['core3_units'];?></p>
+					    <p><?php echo $_POST['core3_number']." - ".$_POST['core3_title'].", ".$_POST['core3_units']." Units";?></p>
 					</div>
 			    </div>    
 			  </fieldset>
 			  <fieldset>
 			    <legend>Applied Mathematics (4 units required)</legend>
 				<div class="row">
-					<div class="small-4 columns">
-					    <p><?php echo $_POST['amth1_number']." - ".$_POST['amth1_title']." - ".$_POST['amth1_units'];?></p>
+					<div class="small-6 columns">
+					    <p><?php echo $_POST['amth1_number']." - ".$_POST['amth1_title'].", ".$_POST['amth1_units']." Units";?></p>
 					</div>
-					<div class="small-4 columns">
-					    <p><?php echo $_POST['amth2_number']." - ".$_POST['amth2_title']." - ".$_POST['amth2_units'];?></p>
+					<div class="small-6 columns">
+					    <p><?php echo $_POST['amth2_number']." - ".$_POST['amth2_title'].", ".$_POST['amth2_units']." Units";?></p>
 					</div>
 			    </div>
 			  </fieldset>
@@ -115,7 +115,7 @@
 							if ($_POST['elective'.$i.'_number']!='' && $_POST['elective'.$i.'_title']!='' && $_POST['elective'.$i.'_units']!='' && $_POST['elective'.$i.'_units']!=0) {
 					    		if ($i % 2 == 1) {echo '<div class="small-6 columns">';}
 					    		echo "<p>";
-					    			echo $_POST['elective'.$i.'_number']." - ".$_POST['elective'.$i.'_title']." - ".$_POST['elective'.$i.'_units'];
+					    			echo $_POST['elective'.$i.'_number']." - ".$_POST['elective'.$i.'_title'].", ".$_POST['elective'.$i.'_units']." Units";
 					    		echo "</p>";
 					    		if ($i % 2 == 1) {echo '</div>';}
 					    	}
@@ -150,7 +150,7 @@
 							if ($_POST['transfer'.$i.'_number']!='' && $_POST['transfer'.$i.'_title']!='' && $_POST['transfer'.$i.'_units']!='' && $_POST['transfer'.$i.'_units']!=0 && $_POST['transfer'.$i.'_grade']!='' && $_POST['transfer'.$i.'_year']!='') {
 					    		if ($i % 2 == 1) {echo '<div class="small-6 columns">';}
 					    		echo "<p>";
-					    			echo $_POST['transfer'.$i.'_number']." - ".$_POST['transfer'.$i.'_title']." - ".$_POST['transfer'.$i.'_units']." - ".$_POST['transfer'.$i.'_grade']." &middot; ".$_POST['transfer'.$i.'_year'];
+					    			echo $_POST['transfer'.$i.'_number']." - ".$_POST['transfer'.$i.'_title']." - ".$_POST['transfer'.$i.'_units']." Units - ".$_POST['transfer'.$i.'_grade']." &middot; ".$_POST['transfer'.$i.'_year'];
 					    		echo "</p>";
 					    		if ($i % 2 == 1) {echo '</div>';}
 					    	}
