@@ -3,42 +3,93 @@ function addUnits () {
 	var transferUnits=0;
 	var totalUnits=0;
 	var temp=0;
-
+	var tempCourseNum;
+	var courses = [];
+	var i=1;
+console.log ('scuUnits');
 //Count Core
-	$( "input[name*='core']" ).each(function() {
-		temp = $(this).val().trim();
+$("input[name*='core'][name*='units']").each(function() {
+  temp = $(this).val().trim();
+  if(temp != ""){
+    scuUnits += parseInt(temp);
+    courses.push($("input[name='core"+i+"_number']").val().trim());
+  }
+  i++;
+});
 
-		if (temp == '') {
-			//No Course Entered
-		} else{
-			if (temp.toUpperCase().charAt(0) =="A") {
-					//Is AMTH, so 4 units
-					scuUnits+=4;
-				} else{
-					//!AMTH so 2 units
-					scuUnits+=2;
-				};
-			};
-		});
+//Count AMTH
+i=1;
+$("input[name*='amth'][name*='units']").each(function() {
+  temp = $(this).val().trim();
+  if(temp != ""){
+    tempCourseNum = $("input[name='amth"+i+"_number']").val().trim();
+    if($.inArray(tempCourseNum, courses) == -1){
+    	courses.push(tempCourseNum);
+	scuUnits += parseInt(temp);
+    }
+    i++;
+  }else
+    i++;
+});
 
 
-//Count Dropdowns
-	$(".custom.dropdown .current").each(function() {
-		temp = $(this).text().trim();
-		
-		if (temp == '') {
-			//No Course Entered
-		} else{
-			//Look up units in value string
-			//eg 'AMTH 000 - 2' is 2 units
-			temp = parseInt(temp.charAt(temp.length-1));
-			
-			if(!isNaN(temp)){scuUnits+=temp;}
+//Count Focus Area (Comm & Microwave)
+i=1;
+$("input[name*='focus'][type='checkbox']").each(function() {
+	if($(this).is(':checked')){
+		temp = $("input[name*='focus1-"+i+"'][name*='units']").val().trim();
+		if(temp != ""){	
+			tempCourseNum = $("input[name*='focus1-"+i+"'][name*='number']").val().trim();
+			if($.inArray(tempCourseNum, courses) == -1){
+    				courses.push(tempCourseNum);
+				scuUnits += parseInt(temp);
+			}
+			i++;
+		}else
+			i++;
+	}else{
+		temp = $("input[name*='focus"+i+"'][type='hidden']").val().trim();
+		tempCourseNum = temp.slice(0,-4);
+		if($.inArray(tempCourseNum, courses) == -1){
+			courses.push(tempCourseNum);
+  			temp = temp.charAt(temp.length - 7);
+    			scuUnits += parseInt(temp);
 		}
-	});
+		i++;
+	}
+});
 
-//Count Systems Core
-	$(".checkbox.checked").each(function() {
+//Count Core Breadth
+// add name="breadth" in to <option> tags
+i=1;
+$("select[name*='breadth'] option:selected").each(function() {
+	if($(this).val() == "Other"){
+		temp = $("input[name='breadth"+i+"_other_units']").val().trim();
+		if(temp != ""){
+			tempCourseNum = $("input[name='breadth"+i+"_other_number']").val().trim();
+			if($.inArray(tempCourseNum, courses) == -1){
+				courses.push(tempCourseNum);
+				scuUnits += parseInt(temp);
+			}
+			i++;
+		}else
+			i++;
+	}else{
+		temp = $(this).val().trim();
+		if (temp != "") {
+			tempCourseNum = temp.slice(0,-4);
+			if($.inArray(tempCourseNum, courses) == -1){
+				courses.push(tempCourseNum);
+				temp = temp.charAt(temp.length - 7);
+				scuUnits += parseInt(temp);
+			}
+		}
+		i++;
+	}
+});
+
+/*
+$(":checked").each(function() {
 		temp = $(this).parent().text().trim();
 
 		//Look up units in value string
@@ -55,39 +106,59 @@ function addUnits () {
 		temp = parseInt(temp.charAt(temp.length-1));
 		
 		scuUnits+=temp;
+});
+
+//Count Dropdowns
+	$(".custom.dropdown .current").each(function() {
+		temp = $(this).text().trim();
+		
+		if (temp == '') {
+			//No Course Entered
+		} else{
+			//Look up units in value string
+			//eg 'AMTH 000 - 2' is 2 units
+			temp = parseInt(temp.charAt(temp.length-1));
+			
+			if(!isNaN(temp)){scuUnits+=temp;}
+		}
 	});
+*/
 
 
 //Count Electives
-	$("input[name*='elective'][type='number']").each(function() {
-		temp = $(this).val().trim();
-
-		if (temp == 0) {
-			//No Course Entered
-		} else{
-			//Get elective field #
-			temp = $(this).attr('id');
-			temp = temp.charAt(8);
-
-			//Check if adjacent fields are filled
-			if ($('#elective'+temp+'_number').val().trim() != '') {
-				if ($('#elective'+temp+'_title').val().trim() != '') {
-					temp = $(this).val().trim();
-					
-					//Look up units in value string
-					//eg 'AMTH 000 - 2' is 2 units
-					temp = parseInt(temp.charAt(temp.length-1));
-					
-					scuUnits+=temp;
-				};
-			};
-			
-			
+i=1;
+$("input[name*='elective'][name*='units']").each(function() {
+	temp = $(this).val().trim();
+	if(temp != ""){
+		tempCourseNum = $("input[name='elective"+i+"_number']").val().trim();
+		if($.inArray(tempCourseNum, courses) == -1){
+			courses.push(tempCourseNum);
+			scuUnits += parseInt(temp);
 		}
-	});
+		i++;
+	}else
+		i++;
+});
 
+//Count Transfer
+i=1;
+$("input[name*='transfer'][name*='units']").each(function() {
+	temp = $(this).val().trim();
+	if(temp != ""){
+		tempCourseNum = $("input[name='transfer"+i+"_number']").val().trim();
+		if($.inArray(tempCourseNum, courses) == -1){
+			courses.push(tempCourseNum);
+			transferUnits += parseInt(temp);
+		}
+		i++;
+	}else
+		i++;	
+});
+if($("option[name='institution'][value='Other']").is(':selected'))
+	transferUnits = transferUnits*1.5;
+/*
 //Count transfer
-	$("input[name*='transfer'][type='number']").each(function() {
+$("input[name*='transfer'][type='number']").each(function() {
 		temp = $(this).val().trim();
 
 		if (temp == 0) {
@@ -110,19 +181,18 @@ function addUnits () {
 							transferUnits+=temp;
 						};
 					};
-
 				};
-			};
-			
-			
+			};			
 		}
-	});
-
- //Output
+});
+*/
+	
+//Output
  	$('.transferUnits').text(transferUnits).val(transferUnits);
  	$('.totalSCUUnits').text(scuUnits).val(scuUnits);
  	$('.totalUnits').text(scuUnits+transferUnits).val(scuUnits+transferUnits);
 }
+
 
 function autocomplete() {
 	var fields = $(this).attr("name").split("_");

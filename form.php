@@ -344,11 +344,8 @@ for ($i=1; $i < $transferMax+1; $i++) {
 					<input type="hidden" name="totalUnits" class="totalUnits">
 			    </div>
 			    <div class="row">
-					<div class="small-8 columns">
+					<div class="small-12 columns">
 						<p>Note: Prerequisite courses are not included in the total SCU unit count.</p>
-					</div>
-					<div class="small-4 columns">
-						<a class="button small secondary count">Count</a>
 					</div>
 			    </div>
 
@@ -428,16 +425,12 @@ for ($i=1; $i < $transferMax+1; $i++) {
   </script>
   <script type="text/javascript" src="js/form_functions.js"></script>
 			  <?php include 'inc/'.$area.'_js.php'; ?>
-  <script type="text/javascript">
 
-  $('.count').click(function() {
-  addUnits();
-});
-  </script>
   <script type="text/javascript">
   	window.database = <?php echo $JavaScript_Array;?>;
   $(function(){ 
 
+  	$('input,select').change(function(){addUnits();});
   	$('div[class*="elective"] input').change(newElective);
   	$('div[class*="transfer"] input').change(newTransfer);
   	$('div[class*="elective"] input').change(fillElective);
@@ -445,13 +438,6 @@ for ($i=1; $i < $transferMax+1; $i++) {
   	$('input[name*="number"]').change(autocomplete);
   	$('input[type!="checkbox"],select').change(showInfo);
   	$('input[type!="checkbox"][type!="radio"]:visible,select').each(showInfo);
-  	$('form').on('invalid', function () {
-	    var invalid_fields = $(this).find('[data-invalid]');
-	    console.log(invalid_fields);
-	  });
-	  $('form').on('valid', function () {
-	    console.log('valid!');
-	  });
   });
   </script>
 
