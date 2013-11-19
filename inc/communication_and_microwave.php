@@ -102,7 +102,7 @@
 								$i=0;
 								foreach ($temp as $key => $value) {
 									$i++;
-									$str=$key.' - '.$value['units'];
+									$str=$key.' - '.$value['name'].', '.$value["units"].' Units';
 									echo "<option ";
 									if ($file_data['breadth1'] == $str) echo "SELECTED";
 									echo ' value="'.$key.' - '.$value['name'].', '.$value["units"].' Units"> '.$key.' - '.$value['name'].', '.$value["units"].' Units</option>';
@@ -138,7 +138,7 @@
 								$i=0;
 								foreach ($temp as $key => $value) {
 									$i++;
-									$str=$key.' - '.$value['units'];
+									$str=$key.' - '.$value['name'].', '.$value["units"].' Units';
 									echo "<option ";
 									if ($file_data['breadth2'] == $str) echo "SELECTED";
 									echo ' value="'.$key.' - '.$value['name'].', '.$value["units"].' Units"> '.$key.' - '.$value['name'].', '.$value["units"].' Units</option>';

@@ -154,8 +154,7 @@ $("input[name*='transfer'][name*='units']").each(function() {
 	}else
 		i++;	
 });
-if($("option[name='institution'][value='Other']").is(':selected'))
-	transferUnits = transferUnits*1.5;
+
 /*
 //Count transfer
 $("input[name*='transfer'][type='number']").each(function() {
@@ -242,34 +241,32 @@ function newTransfer() {
 function fillTransfer() {
 	var i = $(this).attr("id");
 	var temp=0;
-
-
-	if (i) {
-
-		i = i.trim().split("_",1);
+		i = i.trim().split("_");
+		i.pop();
+		i = i.join("_");
+		i = i+"_";
 		temp = $('input[name*="'+i+'"]').filter(function() { return $(this).val() == ""; }).length;
+		console.log(temp);
 		if (temp==5) {
 			$('input[name*="'+i+'"]').removeAttr('required');
 		} else{
 			$('input[name*="'+i+'"]').attr('required', 'required');
 		};
-	}
 }
 function fillElective() {
 	var i = $(this).attr("id");
 	var temp=0;
+		i = i.trim().split("_");
+		i.pop();
+		i = i.join("_");
+		i = i+"_";
 
-
-	if (i) {
-
-		i = i.trim().split("_",1);
 		temp = $('input[name*="'+i+'"]').filter(function() { return $(this).val() == ""; }).length;
 		if (temp==3) {
 			$('input[name*="'+i+'"]').removeAttr('required');
 		} else{
 			$('input[name*="'+i+'"]').attr('required', 'required');
 		};
-	}
 }
 function showInfo() {
 	var type = $(this).attr('type');

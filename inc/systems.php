@@ -8,7 +8,7 @@
 						$i=0;
 						foreach ($temp as $key => $value) {
 							$i++;
-							$str=$key.' - '.$value['units'];
+							$str=$key.' - '.$value['name'].', '.$value["units"].' Units';
 							echo "<label>";
 							echo "<input ";
 							foreach ($file_data['focus1'] as $val) {
@@ -69,7 +69,7 @@
 						$i=0;
 						foreach ($temp as $key => $value) {
 							$i++;
-							$str=$key.' - '.$value['units'];
+							$str=$key.' - '.$value['name'].', '.$value["units"].' Units';
 							echo "<label>";
 							echo "<input ";
 							if ($file_data['focus3'] == $str) echo "CHECKED";
@@ -115,7 +115,7 @@
 								$i=0;
 								foreach ($temp as $key => $value) {
 									$i++;
-									$str=$key.' - '.$value['units'];
+									$str=$key.' - '.$value['name'].', '.$value["units"].' Units';
 									echo "<option ";
 									if ($file_data['breadth1'] == $str) echo "SELECTED";
 									echo ' value="'.$key.' - '.$value['name'].', '.$value["units"].' Units"> '.$key.' - '.$value['name'].', '.$value["units"].' Units</option>';
@@ -152,7 +152,7 @@
 								$i=0;
 								foreach ($temp as $key => $value) {
 									$i++;
-									$str=$key.' - '.$value['units'];
+									$str=$key.' - '.$value['name'].', '.$value["units"].' Units';
 									echo "<option ";
 									if ($file_data['breadth2'] == $str) echo "SELECTED";
 									echo ' value="'.$key.' - '.$value['name'].', '.$value["units"].' Units"> '.$key.' - '.$value['name'].', '.$value["units"].' Units</option>';

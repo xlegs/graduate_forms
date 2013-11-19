@@ -217,7 +217,7 @@
 			    </div>
 			    <div class="row">
 					<div class="small-12 columns">
-						<p>A list of Applied Mathematics courses and their syllabi can be found <a href="http://syllabi.engr.scu.edu/list.cgi?dept=AMTH" target="_blank">here</a>.</p>
+						<p>A list of Applied Mathematics courses and their syllabi can be found <a href="http://syllabi.engr.scu.edu/list.cgi?dept=AMTH" target="_blank">here</a>. The bulletin can be found <a href="http://www.scu.edu/academics/bulletins/engineering/amth.cfm" target="_blank">here</a>.</p>
 						<p>If you used an Applied Mathematics course to satisfy a Graduate Core requirement, it can also satisfy an Applied Mathematics requirement with the approval of your advisor.</p>
 					</div>
 			    </div>
