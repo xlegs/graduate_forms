@@ -1,3 +1,10 @@
+function numEmpty (nameSegment) {
+	// Check if neighbors are empty. Returns # of empty fields
+		var temp;
+		temp = $('input[name*="'+nameSegment+'"]').filter(function() { return $(this).val() == ""; }).length;
+		return temp;
+}
+
 function addUnits () {
 	var scuUnits=0;
 	var transferUnits=0;
@@ -6,11 +13,13 @@ function addUnits () {
 	var tempCourseNum;
 	var courses = [];
 	var i=1;
-console.log ('scuUnits');
+
+	var area = window.area;
+
 //Count Core
 $("input[name*='core'][name*='units']").each(function() {
   temp = $(this).val().trim();
-  if(temp != ""){
+  if(temp != "" && numEmpty('core'+i+'_')==0){
     scuUnits += parseInt(temp);
     courses.push($("input[name='core"+i+"_number']").val().trim());
   }
@@ -21,7 +30,7 @@ $("input[name*='core'][name*='units']").each(function() {
 i=1;
 $("input[name*='amth'][name*='units']").each(function() {
   temp = $(this).val().trim();
-  if(temp != ""){
+  if(temp != "" && numEmpty('amth'+i+'_')==0){
     tempCourseNum = $("input[name='amth"+i+"_number']").val().trim();
     if($.inArray(tempCourseNum, courses) == -1){
     	courses.push(tempCourseNum);
@@ -38,7 +47,7 @@ i=1;
 $("input[name*='focus'][type='checkbox']").each(function() {
 	if($(this).is(':checked')){
 		temp = $("input[name*='focus1-"+i+"'][name*='units']").val().trim();
-		if(temp != ""){	
+		if(temp != "" && numEmpty('focus1-'+i+'_other')==0){	
 			tempCourseNum = $("input[name*='focus1-"+i+"'][name*='number']").val().trim();
 			if($.inArray(tempCourseNum, courses) == -1){
     				courses.push(tempCourseNum);
@@ -60,12 +69,11 @@ $("input[name*='focus'][type='checkbox']").each(function() {
 });
 
 //Count Core Breadth
-// add name="breadth" in to <option> tags
 i=1;
 $("select[name*='breadth'] option:selected").each(function() {
 	if($(this).val() == "Other"){
 		temp = $("input[name='breadth"+i+"_other_units']").val().trim();
-		if(temp != ""){
+		if(temp != "" && numEmpty('breadth'+i+'_other')==0){
 			tempCourseNum = $("input[name='breadth"+i+"_other_number']").val().trim();
 			if($.inArray(tempCourseNum, courses) == -1){
 				courses.push(tempCourseNum);
@@ -129,7 +137,7 @@ $(":checked").each(function() {
 i=1;
 $("input[name*='elective'][name*='units']").each(function() {
 	temp = $(this).val().trim();
-	if(temp != ""){
+	if(temp != "" && numEmpty('elective'+i+'_')==0){
 		tempCourseNum = $("input[name='elective"+i+"_number']").val().trim();
 		if($.inArray(tempCourseNum, courses) == -1){
 			courses.push(tempCourseNum);
@@ -144,11 +152,11 @@ $("input[name*='elective'][name*='units']").each(function() {
 i=1;
 $("input[name*='transfer'][name*='units']").each(function() {
 	temp = $(this).val().trim();
-	if(temp != ""){
+	if(temp != ""&& numEmpty('transfer'+i+'_')==0){
 		tempCourseNum = $("input[name='transfer"+i+"_number']").val().trim();
 		if($.inArray(tempCourseNum, courses) == -1){
 			courses.push(tempCourseNum);
-			transferUnits += parseInt(temp);
+			transferUnits += parseFloat(temp);
 		}
 		i++;
 	}else
@@ -240,14 +248,13 @@ function newTransfer() {
 }
 function fillTransfer() {
 	var i = $(this).attr("id");
-	var temp=0;
+		//Extract ID prefix
 		i = i.trim().split("_");
 		i.pop();
 		i = i.join("_");
 		i = i+"_";
-		temp = $('input[name*="'+i+'"]').filter(function() { return $(this).val() == ""; }).length;
-		console.log(temp);
-		if (temp==5) {
+
+		if (numEmpty(i)==5) {
 			$('input[name*="'+i+'"]').removeAttr('required');
 		} else{
 			$('input[name*="'+i+'"]').attr('required', 'required');
@@ -255,14 +262,14 @@ function fillTransfer() {
 }
 function fillElective() {
 	var i = $(this).attr("id");
-	var temp=0;
+
+		//Extract ID prefix
 		i = i.trim().split("_");
 		i.pop();
 		i = i.join("_");
 		i = i+"_";
 
-		temp = $('input[name*="'+i+'"]').filter(function() { return $(this).val() == ""; }).length;
-		if (temp==3) {
+		if (numEmpty(i)==3) {
 			$('input[name*="'+i+'"]').removeAttr('required');
 		} else{
 			$('input[name*="'+i+'"]').attr('required', 'required');

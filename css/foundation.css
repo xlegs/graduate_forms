@@ -1,13 +1,13 @@
 meta.foundation-mq-small {
-  font-family: "screen, print and (min-width: 768px)";
+  font-family: "only screen and (min-width: 768px)";
   width: 768px; }
 
 meta.foundation-mq-medium {
-  font-family: "screen, print and (min-width:1280px)";
+  font-family: "only screen and (min-width:1280px)";
   width: 1280px; }
 
 meta.foundation-mq-large {
-  font-family: "screen, print and (min-width:1440px)";
+  font-family: "only screen and (min-width:1440px)";
   width: 1440px; }
 
 *,
@@ -147,7 +147,7 @@ select {
   width: 100%;
   float: left; }
 
-@media screen, print {
+@media only screen {
   .column,
   .columns {
     position: relative;
@@ -260,7 +260,7 @@ select {
     margin-right: auto;
     float: none !important; } }
 /* Styles for screens that are atleast 768px; */
-@media screen, print and (min-width: 768px) {
+@media only screen and (min-width: 768px) {
   .large-1 {
     position: relative;
     width: 8.33333%; }
@@ -533,7 +533,7 @@ th.hide-for-xlarge {
   display: table-cell !important; }
 
 /* Medium Displays: 768px - 1279px */
-@media screen, print and (min-width: 768px) {
+@media only screen and (min-width: 768px) {
   .show-for-medium,
   .show-for-medium-up {
     display: inherit !important; }
@@ -567,7 +567,7 @@ th.hide-for-xlarge {
   th.hide-for-small {
     display: table-cell !important; } }
 /* Large Displays: 1280px - 1440px */
-@media screen, print and (min-width: 1280px) {
+@media only screen and (min-width: 1280px) {
   .show-for-large,
   .show-for-large-up {
     display: inherit !important; }
@@ -604,7 +604,7 @@ th.hide-for-xlarge {
   th.hide-for-medium-down {
     display: table-cell !important; } }
 /* X-Large Displays: 1400px and up */
-@media screen, print and (min-width: 1440px) {
+@media only screen and (min-width: 1440px) {
   .show-for-xlarge {
     display: inherit !important; }
 
@@ -664,7 +664,7 @@ th.hide-for-landscape,
 th.show-for-portrait {
   display: table-cell !important; }
 
-@media screen, print and (orientation: landscape) {
+@media only screen and (orientation: landscape) {
   .show-for-landscape,
   .hide-for-portrait {
     display: inherit !important; }
@@ -690,7 +690,7 @@ th.show-for-portrait {
   th.show-for-landscape,
   th.hide-for-portrait {
     display: table-cell !important; } }
-@media screen, print and (orientation: portrait) {
+@media only screen and (orientation: portrait) {
   .show-for-portrait,
   .hide-for-landscape {
     display: inherit !important; }
@@ -767,7 +767,7 @@ th.hide-for-touch {
   display: table-cell !important; }
 
 /* Foundation Block Grids for below small breakpoint */
-@media screen, print {
+@media only screen {
   [class*="block-grid-"] {
     display: block;
     padding: 0;
@@ -880,7 +880,7 @@ th.hide-for-touch {
     .small-block-grid-12 > li:nth-of-type(12n+1) {
       clear: both; } }
 /* Foundation Block Grids for above small breakpoint */
-@media screen, print and (min-width: 768px) {
+@media only screen and (min-width: 768px) {
   /* Remove small grid clearing */
   .small-block-grid-1 > li:nth-of-type(1n+1) {
     clear: none; }
@@ -1231,7 +1231,7 @@ blockquote p {
   border: none;
   padding: 0 0.0625em; }
 
-@media screen, print and (min-width: 768px) {
+@media only screen and (min-width: 768px) {
   h1, h2, h3, h4, h5, h6 {
     line-height: 1.4; }
 
@@ -1468,7 +1468,7 @@ button, .button {
     padding-bottom: 1.03125em;
     -webkit-appearance: none; }
 
-@media screen, print {
+@media only screen {
   button, .button {
     -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
     box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
@@ -1484,7 +1484,7 @@ button, .button {
     button.round, .button.round {
       -webkit-border-radius: 1000px;
       border-radius: 1000px; } }
-@media screen, print and (min-width: 768px) {
+@media only screen and (min-width: 768px) {
   button, .button {
     display: inline-block; } }
 /* Standard Forms */
@@ -2485,7 +2485,7 @@ label.error {
   .section-container.tabs > section.active > .title, .section-container.tabs > .section.active > .title {
     border-bottom: 0; }
 
-@media screen, print and (min-width: 768px) {
+@media only screen and (min-width: 768px) {
   [data-section=''], [data-section='auto'], .section-container.auto {
     width: 100%;
     position: relative;
@@ -3036,7 +3036,7 @@ label.error {
 .js-generated {
   display: block; }
 
-@media screen, print and (min-width: 940px) {
+@media only screen and (min-width: 940px) {
   .top-bar {
     background: #111111;
     *zoom: 1;
@@ -3373,13 +3373,13 @@ label.error {
 .touch .orbit-bullets {
   display: none; }
 
-@media screen, print and (min-width: 768px) {
+@media only screen and (min-width: 768px) {
   .touch .orbit-container .orbit-prev,
   .touch .orbit-container .orbit-next {
     display: inherit; }
   .touch .orbit-bullets {
     display: block; } }
-@media screen, print and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
   .orbit-stack-on-small .orbit-slides-container {
     height: auto !important; }
   .orbit-stack-on-small .orbit-slides-container > * {
@@ -3433,7 +3433,7 @@ label.error {
     font-weight: bold;
     cursor: pointer; }
 
-@media screen, print and (min-width: 768px) {
+@media only screen and (min-width: 768px) {
   .reveal-modal {
     padding: 1.875em;
     top: 6.25em; }
@@ -3583,7 +3583,7 @@ label.error {
   left: 0; }
 
 /* Styles for screens that are atleast 768px; */
-@media screen, print and (min-width: 768px) {
+@media only screen and (min-width: 768px) {
   .joyride-tip-guide {
     width: 300px;
     left: inherit; }
@@ -3686,7 +3686,7 @@ label.error {
   .clearing-feature li.clearing-featured-img {
     display: block; }
 
-@media screen, print and (min-width: 768px) {
+@media only screen and (min-width: 768px) {
   .clearing-main-prev,
   .clearing-main-next {
     position: absolute;
@@ -4342,7 +4342,7 @@ ul.pagination {
       color: white; }
 
 /* Foundation Switches */
-@media screen, print {
+@media only screen {
   div.switch {
     position: relative;
     padding: 0;
@@ -4498,10 +4498,10 @@ ul.pagination {
 
     to {
       position: relative; } } }
-  @media screen, print and (-webkit-min-device-pixel-ratio: 0) and (max-device-width: 480px) {
+  @media only screen and (-webkit-min-device-pixel-ratio: 0) and (max-device-width: 480px) {
     div.switch {
       -webkit-animation: webkitSiblingBugfix infinite 1s; } }
-  @media screen, print and (-webkit-min-device-pixel-ratio: 1.5) {
+  @media only screen and (-webkit-min-device-pixel-ratio: 1.5) {
     div.switch {
       -webkit-animation: none 0; } }
 [data-magellan-expedition] {
@@ -4613,7 +4613,7 @@ a.th {
   color: #888888;
   font-weight: normal; }
 
-@media screen, print and (min-width: 768px) {
+@media only screen and (min-width: 768px) {
   .tooltip > .nub {
     border-color: transparent transparent black transparent;
     top: -10px; }
@@ -4635,7 +4635,7 @@ a.th {
     left: -10px;
     top: 50%;
     margin-top: -5px; } }
-@media screen, print and (max-width: 767px) {
+@media only screen and (max-width: 767px) {
   .f-dropdown {
     max-width: 100%;
     left: 0; } }

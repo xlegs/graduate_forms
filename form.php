@@ -419,7 +419,7 @@ for ($i=1; $i < $transferMax+1; $i++) {
 
     patterns : {
     max5:/^[1-5]$/,
-    max9:/^[1-9]$/
+    max9:/^[1-9](\.[0,5])?$/
   }
 });
   </script>
@@ -430,6 +430,11 @@ for ($i=1; $i < $transferMax+1; $i++) {
   	window.database = <?php echo $JavaScript_Array;?>;
   $(function(){ 
 
+  	$('input,select').each(function(){addUnits();});
+  	$('input[name*="number"]:visible,select').each(showInfo);
+  });
+    $(function(){ 
+
   	$('input,select').change(function(){addUnits();});
   	$('div[class*="elective"] input').change(newElective);
   	$('div[class*="transfer"] input').change(newTransfer);
@@ -437,7 +442,6 @@ for ($i=1; $i < $transferMax+1; $i++) {
   	$('div[class*="transfer"] input').change(fillTransfer);
   	$('input[name*="number"]').change(autocomplete);
   	$('input[type!="checkbox"],select').change(showInfo);
-  	$('input[type!="checkbox"][type!="radio"]:visible,select').each(showInfo);
   });
   </script>
 

@@ -15,15 +15,18 @@ $load = FALSE;
 if (isset($_FILES["upload"])) {
 	if ($_FILES["upload"]["error"] > 0)
 	  {
-	  echo "Error: " . $_FILES["upload"]["error"] . "<br>";
+		  $_SESSION['error'] = "Upload Error";
+		  header( 'Location: index.php' ) ;
+		  die();
 	  }
 	else
 	  {
 
 	  if ($_FILES["upload"]["type"] != 'text/plain') {
-	  	echo "Bad File Type";
-	  	exit;
-	  }
+		  $_SESSION['error'] = "Upload Error. Not a text file.";
+			  header( 'Location: index.php' ) ;
+			  die();	  
+		}
 
 	  $filecontents = file_get_contents($_FILES["upload"]["tmp_name"]);
 	  $file_data = unserialize($filecontents);
