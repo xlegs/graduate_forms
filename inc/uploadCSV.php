@@ -60,9 +60,9 @@ function js_array($array){
 }
 
 //take in a file name to be parsed
-$systemsfile = file("systems.csv");
-$microwavesfile = file("microwaves.csv");
-$electronicsfile = file("electronics.csv");
+$systemsfile = file("csv/systems.csv");
+$microwavesfile = file("csv/microwaves.csv");
+$electronicsfile = file("csv/electronics.csv");
 
 foreach($systemsfile as $k)
     $csv1[] = explode(',', str_replace('"', "", $k));

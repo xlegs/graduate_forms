@@ -18,7 +18,7 @@
  
 </head>
 <body>
-<?php include 'inc/uploadxml.php';?>
+<?php include 'inc/uploadCSV.php';?>
 <?php include 'inc/load.php';?>
 <?php
 			if ($_POST['area']!='') {

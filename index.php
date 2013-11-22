@@ -31,8 +31,11 @@
 		</div>
 	</div>
 <?php 
-  if ($_SESSION["error"]) {
-    echo "string";
+  if ($_SESSION["error"] && $_SESSION["error"]!="null") {
+    echo '<div data-alert class="alert-box alert">';
+     echo $_SESSION["error"];
+    echo '<a href="#" class="close">&times;</a></div>';   
+  
 
   }
 ?>
@@ -65,7 +68,6 @@
 
 <script src="js/vendor/jquery.js"></script>
 <script src="js/foundation/foundation.min.js"></script>
-<script src="js/foundation-migrate.js"></script>
   <script>
     $(document).foundation();
   </script>

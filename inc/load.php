@@ -12,6 +12,7 @@
 // Checks to see if the filename is set if not then the code is not run
 
 $load = FALSE;
+$_SESSION["error"]="null";
 if (isset($_FILES["upload"])) {
 	if ($_FILES["upload"]["error"] > 0)
 	  {
