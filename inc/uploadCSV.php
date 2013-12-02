@@ -40,9 +40,9 @@ function rewriteArray( $oldarray ) {
 		$index = $coursevalue[0];
 		if($coursevalue[3] != 0){
 		    $pair = $coursevalue[3];
-		    $array[$arraykey]['pairnumbers'][$pair][$index] = array("number" => $coursevalue[0],"name" => $coursevalue[1],"units" => $coursevalue[2],"description" => $coursevalue[4]);
+		    $array[$arraykey]['pairnumbers'][$pair][$index] = array("number" => $coursevalue[0],"name" => $coursevalue[1],"units" => $coursevalue[2]);
 		}
-		$array[$arraykey]['courses'][$index] = array("number" => $coursevalue[0],"name" => $coursevalue[1],"units" => $coursevalue[2],"description" => $coursevalue[4]);
+		$array[$arraykey]['courses'][$index] = array("number" => $coursevalue[0],"name" => $coursevalue[1],"units" => $coursevalue[2]);
 	    }
 	}
     }
