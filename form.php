@@ -428,6 +428,7 @@ for ($i=1; $i < $transferMax+1; $i++) {
 
   <script type="text/javascript">
   	window.database = <?php echo $JavaScript_Array;?>;
+  	window.area = '<?php echo $area;?>';
   $(function(){ 
 
   	$('input,select').each(function(){addUnits();});
@@ -442,6 +443,9 @@ for ($i=1; $i < $transferMax+1; $i++) {
   	$('div[class*="transfer"] input').change(fillTransfer);
   	$('input[name*="number"]').change(autocomplete);
   	$('input[type!="checkbox"],select').change(showInfo);
+  	$('form').submit(function(){
+  		if (!checkDup) event.preventDefault();
+  		});
   });
   </script>
 

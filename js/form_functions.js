@@ -4,6 +4,80 @@ function numEmpty (nameSegment) {
 		temp = $('input[name*="'+nameSegment+'"]').filter(function() { return $(this).val() == ""; }).length;
 		return temp;
 }
+function checkDup () {
+	var set = $(this).closest('fieldset');
+	var temp=0;
+	var tempCourseNum;
+	var courses = [];
+	var val;
+
+	$('fieldset').each(function() {
+		set=$(this);
+
+		set.find('input[name*="number"]:visible').each(function() {
+			  temp = $(this).val().trim();
+			  if(temp != ""){
+			  	if ($.inArray( temp, courses )==-1) {
+				    courses.push(temp);
+			  	}else{
+			  		//Dup found
+			  		$(this).attr('data-invalid', 'data-invalid');
+			  		$(this).parent().addClass('error');
+			  		return false;
+			  	}
+
+			  }
+
+		});
+		set.find('input[value!="Other"][type="checkbox"]:checked').each(function() {
+			  temp = $(this).val().trim().slice(0,8);
+			  if(temp != ""){
+			  	if ($.inArray( temp, courses )==-1) {
+				    courses.push(temp);
+			  	}else{
+			  		//Dup found
+			  		$(this).attr('data-invalid', 'data-invalid');
+			  		$(this).parent().addClass('error');
+			  		return false;
+			  	}
+
+			  }
+
+		});
+		set.find('input[type="radio"]:checked').each(function() {
+			  temp = $(this).val().trim().slice(0,8);
+			  if(temp != ""){
+			  	if ($.inArray( temp, courses )==-1) {
+				    courses.push(temp);
+
+			  	}else{
+			  		//Dup found
+			  		$(this).attr('data-invalid', 'data-invalid');
+			  		$(this).parent().addClass('error');
+			  		return false;
+			  	}
+
+			  }
+
+		});
+		set.find('option[value!="Other"]:selected').each(function() {
+			  temp = $(this).val().trim().slice(0,8);
+			  if(temp != ""){
+			  	if ($.inArray( temp, courses )==-1) {
+				    courses.push(temp);
+				    			    console.log(courses);
+			  	}else{
+			  		//Dup found
+			  		$(this).attr('data-invalid', 'data-invalid');
+			  		$(this).parent().parent().addClass('error');
+			  		return false;
+			  	}
+
+			  }
+
+		});
+	});
+}
 
 function addUnits () {
 	var scuUnits=0;
@@ -41,32 +115,128 @@ $("input[name*='amth'][name*='units']").each(function() {
     i++;
 });
 
-
-//Count Focus Area (Comm & Microwave)
-i=1;
-$("input[name*='focus'][type='checkbox']").each(function() {
-	if($(this).is(':checked')){
-		temp = $("input[name*='focus1-"+i+"'][name*='units']").val().trim();
-		if(temp != "" && numEmpty('focus1-'+i+'_other')==0){	
-			tempCourseNum = $("input[name*='focus1-"+i+"'][name*='number']").val().trim();
+if (area=="communication_and_microwave") {
+	//Count Focus Area (Comm & Microwave)
+	i=1;
+	$("input[name*='focus'][type='checkbox']").each(function() {
+		if($(this).is(':checked')){
+			temp = $("input[name*='focus1-"+i+"'][name*='units']").val().trim();
+			if(temp != "" && numEmpty('focus1-'+i+'_other')==0){	
+				tempCourseNum = $("input[name*='focus1-"+i+"'][name*='number']").val().trim();
+				if($.inArray(tempCourseNum, courses) == -1){
+	    				courses.push(tempCourseNum);
+					scuUnits += parseInt(temp);
+				}
+				i++;
+			}else
+				i++;
+		}else{
+			temp = $("input[name*='focus"+i+"'][type='hidden']").val().trim();
+			tempCourseNum = temp.slice(0,-4);
 			if($.inArray(tempCourseNum, courses) == -1){
-    				courses.push(tempCourseNum);
-				scuUnits += parseInt(temp);
+				courses.push(tempCourseNum);
+	  			temp = temp.charAt(temp.length - 7);
+	    			scuUnits += parseInt(temp);
 			}
 			i++;
-		}else
-			i++;
-	}else{
-		temp = $("input[name*='focus"+i+"'][type='hidden']").val().trim();
-		tempCourseNum = temp.slice(0,-4);
-		if($.inArray(tempCourseNum, courses) == -1){
-			courses.push(tempCourseNum);
-  			temp = temp.charAt(temp.length - 7);
-    			scuUnits += parseInt(temp);
 		}
-		i++;
-	}
-});
+	});
+}
+
+if (area=="electronics") {
+	//Count Focus Area (electronics)
+	i=1;
+	$("input[name*='focus'][type='checkbox']").each(function() {
+		if($(this).is(':checked')){
+			temp = $("input[name*='focus"+i+"'][name*='units']").val().trim();
+			if(temp != "" && numEmpty('focus'+i+'_other')==0){	
+				tempCourseNum = $("input[name*='focus"+i+"'][name*='number']").val().trim();
+				if($.inArray(tempCourseNum, courses) == -1){
+	    				courses.push(tempCourseNum);
+					scuUnits += parseInt(temp);
+				}
+				i++;
+			}else
+				i++;
+		}else{
+			temp = $("input[name*='focus"+i+"'][type='radio']").val().trim();
+			tempCourseNum = temp.slice(0,-4);
+			if($.inArray(tempCourseNum, courses) == -1){
+				courses.push(tempCourseNum);
+	  			temp = temp.charAt(temp.length - 7);
+	    			scuUnits += parseInt(temp);
+			}
+			i++;
+		}
+	});
+}
+
+if (area=="systems") {
+	//Count Focus Area (systems)
+	i=1;
+	$("input[name*='focus1'][type='checkbox']").each(function() {
+		if($(this).is(':checked')){
+			i = $(this).attr("id").charAt(7);
+			console.log(i);
+			if ($(this).val()=="Other"){
+				temp = $("input[name*='focus1-"+i+"'][name*='units']").val().trim();
+				if(temp != "" && numEmpty('focus1-'+i+'_other')==0){	
+					tempCourseNum = $("input[name*='focus1-"+i+"'][name*='number']").val().trim();
+					if($.inArray(tempCourseNum, courses) == -1){
+		    				courses.push(tempCourseNum);
+						scuUnits += parseInt(temp);
+					}
+				}
+			}else{
+				temp = $(this).val().trim();
+				if(temp != ""){	
+				tempCourseNum = temp.slice(0,-4);
+					if($.inArray(tempCourseNum, courses) == -1){
+		    				courses.push(tempCourseNum);
+		    				temp = temp.charAt(temp.length - 7);
+
+						scuUnits += parseInt(temp);
+					}
+				}
+			}
+		}
+		
+	});
+
+	i=1;
+	$("input[name*='focus3'][type='checkbox']").each(function() {
+		if($(this).is(':checked')){
+			temp = $("input[name*='focus3'][name*='units']").val().trim();
+			if(temp != "" && numEmpty('focus3_other')==0){	
+				tempCourseNum = $("input[name*='focus3_other'][name*='number']").val().trim();
+				if($.inArray(tempCourseNum, courses) == -1){
+	    				courses.push(tempCourseNum);
+
+					scuUnits += parseInt(temp);
+				}
+				i++;
+			}else
+				i++;
+		}else{
+			$("input[name*='focus3'][type='radio']:checked").each(function() {
+
+				temp = $(this).val().trim();
+				if(temp != ""){	
+						tempCourseNum = $(this).val().trim();
+						if($.inArray(tempCourseNum, courses) == -1){
+			    				courses.push(tempCourseNum);
+			    				temp = temp.charAt(temp.length - 7);
+
+							scuUnits += parseInt(temp);
+						}
+
+				}
+			});
+		}
+	});
+
+}
+
 
 //Count Core Breadth
 i=1;
@@ -95,42 +265,6 @@ $("select[name*='breadth'] option:selected").each(function() {
 		i++;
 	}
 });
-
-/*
-$(":checked").each(function() {
-		temp = $(this).parent().text().trim();
-
-		//Look up units in value string
-		//eg 'AMTH 000 - 2' is 2 units
-		temp = parseInt(temp.charAt(temp.length-1));
-		
-		scuUnits+=temp;
-	});
-	$(".radio.checked").each(function() {
-		temp = $(this).parent().text().trim();
-
-		//Look up units in value string
-		//eg 'AMTH 000 - 2' is 2 units
-		temp = parseInt(temp.charAt(temp.length-1));
-		
-		scuUnits+=temp;
-});
-
-//Count Dropdowns
-	$(".custom.dropdown .current").each(function() {
-		temp = $(this).text().trim();
-		
-		if (temp == '') {
-			//No Course Entered
-		} else{
-			//Look up units in value string
-			//eg 'AMTH 000 - 2' is 2 units
-			temp = parseInt(temp.charAt(temp.length-1));
-			
-			if(!isNaN(temp)){scuUnits+=temp;}
-		}
-	});
-*/
 
 
 //Count Electives
@@ -163,36 +297,6 @@ $("input[name*='transfer'][name*='units']").each(function() {
 		i++;	
 });
 
-/*
-//Count transfer
-$("input[name*='transfer'][type='number']").each(function() {
-		temp = $(this).val().trim();
-
-		if (temp == 0) {
-			//No Course Entered
-		} else{
-			//Get transfer field #
-			temp = $(this).attr('id');
-			temp = temp.charAt(8);
-
-			//Check if adjacent fields are filled
-			if ($('#transfer'+temp+'_number').val().trim() != '') {
-				if ($('#transfer'+temp+'_title').val().trim() != '') {
-					if ($('#transfer'+temp+'_grade').val().trim() != '') {
-						if ($('#transfer'+temp+'_year').val().trim() != '') {
-							temp = $(this).val().trim();
-							//Look up units in value string
-							//eg 'AMTH 000 - 2' is 2 units
-							temp = parseInt(temp.charAt(temp.length-1));
-							
-							transferUnits+=temp;
-						};
-					};
-				};
-			};			
-		}
-});
-*/
 	
 //Output
  	$('.transferUnits').text(transferUnits).val(transferUnits);
